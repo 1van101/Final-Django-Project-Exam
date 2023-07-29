@@ -1,0 +1,47 @@
+<nav class="navbar">
+    <div class="container-nav">
+        <ul class="nav-group">
+            <li class="nav-item">
+
+                <a href="{% url 'home page' %}">
+                    <i>Home</i>
+                </a>
+            </li>
+            {% if request.user.is_authenticated %}
+                <li class="nav-item">
+
+                    <a href="#">
+                        <i>Add Photo</i>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a href="#">
+                        <i>Profile</i>
+                    </a>
+                </li>
+                <li class="nav-item">
+
+                    <a href="{% url 'logout user' %}">
+                        <i>Logout</i>
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+
+                    <a href="{% url 'login user' %}">
+                        <i>Login</i>
+                    </a>
+                </li>
+                <li class="nav-item">
+
+                    <a href="{% url 'register user' %}">
+                        <i>Register</i>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

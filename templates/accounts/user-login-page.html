@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load custom_filters %}
+
+{% load static %}
+
+{% block content %}
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
+    <main>
+
+        <div class="login-register-container">
+            <div class="login-register-box">
+                <h1>Login</h1>
+
+                <form method='post' action="{% url 'login user' %}">
+
+                    {% csrf_token %}
+{#                    {% if form.non_field_errors %}#}
+                        <div class="errorlist">
+                            {{ form.non_field_errors }}
+                        </div>
+{#                    {% endif %}#}
+
+                    {{ form.username.errors }}
+                    {{ form.password.errors }}
+
+                    {{ form.username|placeholder:'Username' }}
+                    {{ form.password|placeholder:'Password' }}
+
+                    <button type="submit">Login</button>
+                </form>
+
+            </div>
+            <div class="another-choice">
+
+                <p>Don't have an account? <a href="{% url 'register user' %}">Register</a></p>
+            </div>
+        </div>
+
+    </main>
+    </body>
+{% endblock %}
