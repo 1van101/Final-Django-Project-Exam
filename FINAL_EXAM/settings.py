@@ -3,6 +3,8 @@ import os
 
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -114,7 +116,6 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
@@ -123,5 +124,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 AUTH_USER_MODEL = 'accounts.AppUser'
 
 
-LOGIN_REDIRECT_URL = 'details profile'
+# LOGIN_REDIRECT_URL = 'login user'
 LOGOUT_REDIRECT_URL = 'home page'

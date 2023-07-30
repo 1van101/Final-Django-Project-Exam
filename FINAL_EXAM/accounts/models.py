@@ -4,6 +4,7 @@ from django.contrib.auth import models as auth_models
 
 from FINAL_EXAM.accounts.validators import only_letters_validator
 
+
 # UserModel = get_user_model()
 
 
@@ -52,4 +53,10 @@ class AppUser(auth_models.AbstractUser):
 
     is_visitor = models.BooleanField(default=False)
 
-
+    @property
+    def full_name(self):
+        if self.first_name and self.last_name:
+            return f'{self.first_name} {self.last_name}'
+        elif self.first_name or self.last_name:
+            return self.first_name or self.last_name
+        return self.username
