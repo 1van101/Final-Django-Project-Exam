@@ -20,8 +20,8 @@ class Kid(models.Model):
     )
 
     date_of_birth = models.DateField(
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
     )
 
     user = models.ForeignKey(
