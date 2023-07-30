@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load custom_filters %}
+
+{% load static %}
+
+{% block content %}
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
+    <main>
+
+        <div class="login-register-container">
+            <div class="login-register-box">
+                <h1>Edit</h1>
+
+                <form method='post' action="#">
+                    {% for field in form %}
+
+                        <p class="error"> {{ field.errors }} </p>
+                        <div class="label-input">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                        </div>
+                        {% csrf_token %}
+                    {% endfor %}
+
+
+                    <button type="submit">Edit</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+    </body>
+{% endblock %}

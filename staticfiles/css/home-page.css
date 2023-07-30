@@ -238,3 +238,16 @@ main {
 .searchbar label {
     display: none;
 }
+
+.footer {
+    text-align: center;
+    margin: 20px;
+}
+
+/*.footer .footer-section {*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*    font-size: 12px;*/
+/*    font-family: sans-serif;*/
+/*    z-index: -2;*/
+/*}*/
