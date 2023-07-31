@@ -23,9 +23,8 @@ class Drawing(models.Model):
         )
     )
 
-    tagged_kid = models.OneToOneField(
+    kid_owner_drawing = models.ForeignKey(
         Kid,
-        blank=True,
         on_delete=models.CASCADE
     )
 
