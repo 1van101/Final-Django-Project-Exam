@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.text import slugify
+from datetime import datetime
+
 
 UserModel = get_user_model()
 
@@ -42,3 +44,13 @@ class Kid(models.Model):
         if not self.slug:
             self.slug = slugify(f'{self.user} {self.name}')
         return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.name}: {self.count_age} years old'
+
+    @property
+    def count_age(self):
+        current_date = datetime.now().date()
+        age = current_date.year - self.date_of_birth.year - (
+                    (current_date.month, current_date.day) < (self.date_of_birth.month, self.date_of_birth.day))
+        return age

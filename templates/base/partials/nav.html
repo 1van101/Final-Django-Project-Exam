@@ -7,13 +7,14 @@
                     <i>Home</i>
                 </a>
             </li>
-            {% if request.user.is_authenticated %}
-                <li class="nav-item">
+        <li class="nav-item">
 
-                    <a href="#">
-                        <i>Add Photo</i>
+                    <a href="{% url 'add drawing' %}">
+                        <i>Add Drawing</i>
                     </a>
                 </li>
+            {% if request.user.is_authenticated %}
+
 
 
                 <li class="nav-item">
