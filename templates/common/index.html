@@ -3,208 +3,121 @@
 
 
 {% block content %}
-    <body style="background-image: url('{% static "images/index.jpg"%}');">
+    <body style="background-image: url('{% static "images/index.jpg" %}');">
     <main>
         <div class="text-typing">
             <h1 class="text-typing">THE WORLD OF KIDS DRAWINGS</h1>
-            {#            <a href=""><h4>see liked drawings</h4></a>#}
 
         </div>
         <div class="searchbar-container">
-            <form class="searchbar" method="post">
-                <label for="search-drawing">Search drawing by kid name...</label><br>
-                <input type="text" id="search-drawing" placeholder="Search drawing by kid name...">
+            <form class="searchbar" method="get" >
 
-                <button>
+                {% csrf_token %}
+                {{ search_form.drawings_of_searched_kid }}
+
+                <button type="submit">
                     <img src="{% static 'images/search.png' %}" height="18" alt="img2">
                 </button>
             </form>
         </div>
+    {% if not drawings %}
+            <div class="no-posts-yet">
+                <img src="{% static 'images/not-found.png' %}" alt="">
+                <p>This kid doesn't have any drawings yet...</p>
+            <a class="edit-btn" href="javascript:history.back()">Go Back</a>
+            </div>
+    {% else %}
         <div class="container-drawings">
-            <div class="card">
-                <div class="top">
-                    <div class="user-details">
-                        <div class="user-name"><a href="#">
-                            <img src="{% static 'images/default-avatar.jpg' %}" alt="">
-                        </a>
-                            <h3><a href="#">IVAN TSVETANOV</a></h3>
+
+
+
+
+            {% for drawing in drawings %}
+
+                <div class="card">
+                    <div class="top">
+                        <div class="user-details">
+                            <div class="user-name"><a href="#">
+                                {% if drawing.user.profile_picture %}
+                                    <img src="{{ drawing.user.profile_picture }}" alt="">
+                                {% else %}
+                                    <img src="{% static 'images/default-avatar.jpg' %}" alt="">
+                                {% endif %}
+                            </a>
+                                <h3><a href="#">{{ drawing.user.full_name }}</a></h3>
+                            </div>
+
                         </div>
 
-                        <span>SOFIA</span>
                     </div>
-
-                </div>
-                <div class="content">
-                    <img src="{% static 'images/child-drawing_custom-1fe8bd0f68eb05c8781bdb2a4d894c8653be0ae0-s1100-c50.jpg' %}"
-                         alt="">
-                </div>
-                <div class="bottom">
-                    <svg style="color: red"
-                         xmlns="http://www.w3.org/2000/svg"
-                         width="24"
-                         height="24"
-                         fill="currentColor"
-                         class="bi bi-heart-fill"
-                         viewBox="0 0 16 16">
-                        <!-- Coordinate path -->
-                        <path fill-rule="evenodd"
-                              d="M8 1.314C12.438-3.248 23.534 4.735
+                    <div class="content">
+                        <img src="{{ drawing.drawing.url }}"
+                             alt="">
+                    </div>
+                    <div class="bottom">
+                        <div class="heart">
+                            <svg style="color: red"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 fill="currentColor"
+                                 class="bi bi-heart-fill"
+                                 viewBox="0 0 16 16">
+                                <!-- Coordinate path -->
+                                <path fill-rule="evenodd"
+                                      d="M8 1.314C12.438-3.248 23.534 4.735
                                                   8 15-7.534 4.736 3.562-3.248 8 1.314z"
-                              fill="red">
+                                      fill="red">
 
-                        </path>
-                    </svg>
+                                </path>
+                            </svg>
 
 
-                    <p>111 likes</p>
-                    <a href="#" class="kid-owner">
-                        <p>GOSHKO</p>
-                    </a>
-                    <a href="">
-                        <h4>See details</h4>
-                    </a>
-                    <p>11.11.2012</p>
-                    <!-- <div class="addComments">
-                        <form method="#" action="">
-
-                            <p>comment</p>
-
-                            <button type="submit">Post</button>
-                        </form>
-                    </div> -->
-                </div>
-            </div>
-            <div class="card">
-                <div class="top">
-                    <div class="user-details">
-                        <div class="user-name"><a href="#">
-                            <img src="{% static 'images/default-avatar.jpg' %}" alt="">
-                        </a>
-                            <h3><a href="#">IVAN TSVETANOV</a></h3>
+                            <p>111 likes</p>
                         </div>
-
-                        <span>SOFIA</span>
-                    </div>
-
-                </div>
-                <div class="content">
-                    <img src="{% static 'images/istockphoto-1204017888-612x612.jpg' %}" alt="">
-                </div>
-                <div class="bottom">
-                    <span id="boot-icon" class="bi bi-suit-heart-fill"
-                          style="font-size:1.5rem; color: rgb(255, 0, 0);"></span>
-
-                    <svg style="color: red"
-                         xmlns="http://www.w3.org/2000/svg"
-                         width="24"
-                         height="24"
-                         fill="currentColor"
-                         class="bi bi-heart-fill"
-                         viewBox="0 0 16 16">
-                        <!-- Coordinate path -->
-                        <path fill-rule="evenodd"
-                              d="M8 1.314C12.438-3.248 23.534 4.735
-                                                  8 15-7.534 4.736 3.562-3.248 8 1.314z"
-                              fill="red">
-
-                        </path>
-                    </svg>
-
-
-                    <p>111 likes</p>
-                    <a href="#" class="kid-owner">
-                        <p>GOSHKO</p>
-                    </a>
-                    <a href="">
-                        <h4>See details</h4>
-                    </a>
-                    <p>11.11.2012</p>
-                    <!-- <div class="addComments">
-                        <form method="#" action="">
-
-                            <p>comment</p>
-
-                            <button type="submit">Post</button>
-                        </form>
-                    </div> -->
-                </div>
-            </div>
-            <div class="card">
-                <div class="top">
-                    <div class="user-details">
-                        <div class="user-name"><a href="#">
-                            <img src="{% static 'images/Pomeranian.JPG' %}" alt="">
+                        <a href="#" class="kid-owner">
+                            <p>{{ drawing.kid_owner_drawing.name }}</p>
                         </a>
-                            <h3><a href="#">IVAN TSVETANOV</a></h3>
-                        </div>
+                        <a href="">
+                            <h4>See details</h4>
+                        </a>
+                        <p>{{ drawing.date_of_publication }}</p>
+                        <!-- <div class="addComments">
+                            <form method="#" action="">
 
-                        <span>SOFIA</span>
+                                <p>comment</p>
+
+                                <button type="submit">Post</button>
+                            </form>
+                        </div> -->
                     </div>
-
                 </div>
-                <div class="content">
-                    <img src="{% static 'images/images.jpg' %}" alt="">
-                </div>
-                <div class="bottom">
-                    <span id="boot-icon" class="bi bi-suit-heart-fill"
-                          style="font-size:1.5rem; color: rgb(255, 0, 0);"></span>
 
-                    <svg style="color: red"
-                         xmlns="http://www.w3.org/2000/svg"
-                         width="24"
-                         height="24"
-                         fill="currentColor"
-                         class="bi bi-heart-fill"
-                         viewBox="0 0 16 16">
-                        <!-- Coordinate path -->
-                        <path fill-rule="evenodd"
-                              d="M8 1.314C12.438-3.248 23.534 4.735
-                                                  8 15-7.534 4.736 3.562-3.248 8 1.314z"
-                              fill="red">
-
-                        </path>
-                    </svg>
-
-
-
-                    <p>111 likes</p>
-                    <a href="#" class="kid-owner">
-                        <p>GOSHKO</p>
-                    </a>
-                    <a href="">
-                        <h4>See details</h4>
-                    </a>
-                    <p>11.11.2012</p>
-                    <!-- <div class="addComments">
-                        <form method="#" action="">
-
-                            <p>comment</p>
-
-                            <button type="submit">Post</button>
-                        </form>
-                    </div> -->
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
-{#        <div class="pagination">#}
-{#        <span class="step-links">#}
-{#            {% if page_obj.has_previous %}#}
-{#                <a href="?page=1">&laquo; first</a>#}
-{#                <a href="?page={{ page_obj.previous_page_number }}">previous</a>#}
-{#            {% endif %}#}
-{##}
-{#            <span class="current">#}
-{#                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.#}
-{#            </span>#}
-{##}
-{#            {% if page_obj.has_next %}#}
-{#                <a href="?page={{ page_obj.next_page_number }}">next</a>#}
-{#                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>#}
-{#            {% endif %}#}
-{#        </span>#}
-{#    </div>#}
+
+
+    <div class="pagination">
+    <span class="step-links">
+    {% if page_obj.has_previous %}
+        <a href="?page=1&drawings_of_searched_kid={{ request.GET.drawings_of_searched_kid }}">&laquo; first</a>
+        <a href="?page={{ page_obj.previous_page_number }}&drawings_of_searched_kid={{ request.GET.drawings_of_searched_kid }}">previous</a>
+    {% endif %}
+    <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&drawings_of_searched_kid={{ request.GET.drawings_of_searched_kid }}">next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}&drawings_of_searched_kid={{ request.GET.drawings_of_searched_kid }}">last &raquo;</a>
+    {% endif %}
+    </span>
+</div>
+    {% endif %}
     </main>
+
     </body>
-    <!-- <script src="css/myScript.js"></script> -->
+
 {% endblock %}
+
+
