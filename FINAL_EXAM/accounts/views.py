@@ -32,7 +32,6 @@ class UserLoginView(auth_view.LoginView):
 
 
 class UserLogoutView(auth_view.LogoutView):
-    # next_page = reverse_lazy('login user')
     pass
 
 
@@ -47,7 +46,7 @@ class UserDetailsView(views.DetailView):
 
         context.update({
             'is_owner': is_owner,
-            'user': self.request.user
+            # 'user': self.request.user
         })
         return context
 

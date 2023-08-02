@@ -4,12 +4,12 @@
 {% load static %}
 
 {% block content %}
-    <body style="background-image: url('{% static "images/default-page.jpg"%}');">
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
     <main>
 
         <div class="login-register-container">
             <div class="login-register-box">
-                <h1>Register</h1>
+                <h1 class="register-h1">Register</h1>
 
                 <form method='post' action="{% url 'register user' %}">
 
@@ -27,8 +27,8 @@
                     {{ form.password2|placeholder:'Repeat password' }}
 
                     <div class="is-visitor-field">
-                    {{ form.is_visitor.label_tag }}
-                    {{ form.is_visitor }}
+                        {{ form.is_visitor.label_tag }}
+                        {{ form.is_visitor }}
                     </div>
 
                     <button type="submit">Register</button>
@@ -42,5 +42,5 @@
         </div>
 
     </main>
-</body>
+    </body>
 {% endblock %}

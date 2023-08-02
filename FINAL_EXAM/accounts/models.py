@@ -9,11 +9,19 @@ from FINAL_EXAM.accounts.validators import only_letters_validator
 
 
 class AppUser(auth_models.AbstractUser):
+    MIN_USERNAME_LEN = 2
+    MAX_USERNAME_LEN = 30
     MAX_USER_NAME_LEN = 30
     MIN_USER_NAME_LEN = 2
     CHOICES = (
         ('Male', 'Male'),
         ('Female', 'Female'),
+    )
+
+    username = models.CharField(
+        max_length=MAX_USERNAME_LEN,
+        unique=True,
+        validators=[MinLengthValidator(limit_value=MIN_USERNAME_LEN)],
     )
 
     first_name = models.CharField(

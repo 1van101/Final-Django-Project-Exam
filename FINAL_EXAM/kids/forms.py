@@ -8,7 +8,10 @@ class AddKidForm(forms.ModelForm):
     class Meta:
         model = Kid
         fields = '__all__'
-        exclude = ('user', )
-        widgets = {
-            'date_of_birth': AdminDateWidget(),
-        }
+        exclude = ('user',)
+        # widgets = {
+        #     'date_of_birth': AdminDateWidget(),
+        # }
+
+    # def __init__(self, *args, **kwargs):
+    #     super(AddKidForm, self).__init__(*args, **kwargs)
