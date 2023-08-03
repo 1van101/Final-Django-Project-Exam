@@ -1,263 +1,318 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Varela+Round&display=swap');
- * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
- a {
-     text-decoration: none;
+
+a {
+    text-decoration: none;
 }
- body {
-     font-family: 'Varela Round', sans-serif;
-     background-image: url("../images/index.jpg");
-     background-position: center center;
-     background-attachment: fixed;
-     background-size: 100% 100%;
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    background-image: url("../images/index.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
- main {
-     min-height: 80vh;
-     display: flex;
-     flex-direction: column;
-     margin-top: 40px;
-     align-items: center;
+
+main {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    align-items: center;
 
 }
- .container-nav {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 100%;
-     margin-top: 16px;
+
+.container-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 16px;
 }
- .nav-group {
-     display: flex;
-     gap: 50px;
-     font-size: 1.4em;
-     list-style: none;
+
+.nav-group {
+    display: flex;
+    gap: 50px;
+    font-size: 1.4em;
+    list-style: none;
 }
- .nav-item {
-     font-weight: bold;
+
+.nav-item {
+    font-weight: bold;
 }
- .nav-group a {
+
+
+.nav-item:nth-child(1) a i {
+    color: #1dac90;
+    text-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
 
 }
- .nav-item:nth-child(1) a i {
-     color: #1dac90;
+
+.nav-item:nth-child(2) a i {
+    color: #fdc473;
 }
- .nav-item:nth-child(2) a i {
-     color: #fdc473;
+
+.nav-item:nth-child(3) a i {
+    color: #6f4380;
 }
- .nav-item:nth-child(3) a i {
-     color: #6f4380;
+
+.nav-item:nth-child(4) a i {
+    color: #e36c8f;
 }
- .nav-item:nth-child(4) a i {
-     color: #e36c8f;
-}
- .text-typing {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     font-size: 30px;
-     color: #6f4380;
-     margin-bottom: 8px;
+
+.text-typing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #6f4380;
+    margin-bottom: 8px;
 
 }
- .text-typing h1 {
-     white-space: nowrap;
 
-     overflow: hidden;
-     animation: typing 4s steps(22, end) forwards, blink 1s;
+.text-typing h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(22, end) forwards, blink 1s;
 }
- .text-typing h4 {
-     white-space: nowrap;
-     margin-bottom: 30px;
-     overflow: hidden;
-     color: #e36c8f;
-     animation: typing 2s steps(22, end) forwards, blink 1s;
+
+.text-typing h4 {
+    white-space: nowrap;
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: #e36c8f;
+    animation: typing 2s steps(22, end) forwards, blink 1s;
 }
- @keyframes typing {
-     0% {
-         width: 0;
+
+@keyframes typing {
+    0% {
+        width: 0;
     }
-     100% {
-         width: 100%;
-    }
-}
- @keyframes blink {
-     0%, 100% {
-         border-right: 2px solid transparent;
-    }
-     50% {
-         border-right: 2px solid #222;
+    100% {
+        width: 100%;
     }
 }
+
+@keyframes blink {
+    0%, 100% {
+        border-right: 2px solid transparent;
+    }
+    50% {
+        border-right: 2px solid #222;
+    }
+}
+
 /* CARD----------------------- */
- .user-name {
-     display: flex;
-     gap: 25px;
-     align-items: center;
-}
- .user-details span {
-     font-size: 10px;
-}
- .user-name h3 a {
-     color: #6f4380;
-}
- .user-name img {
-     height: 32px;
-     width: 42px;
-     border-radius: 5px;
-}
- .container-drawings {
-     width: 750px;
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     align-items: center;
-     justify-items: center;
-     gap: 8px;
-}
- .card {
-     display: flex;
-     width: 210px;
-     flex-direction: column;
-     border: 1px solid #ccc;
-     border-radius: 5px;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-     font-size: 0.7rem;
-}
- .card:hover {
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
- .content {
-     overflow: hidden;
-}
- .content img {
-     width: 100%;
-     height: 125px;
-     overflow: hidden;
-     display: block;
-}
- .bottom {
-     display: flex;
-     flex-direction: column;
-     gap: 6px;
-     padding: 6px;
-}
- .top {
-     padding: 6px;
-}
- .bottom a {
-     color: gray;
-}
- .heart {
-     display: flex;
-     gap: 10px;
-     align-items: center;
-}
- .kid-owner p {
-     color: #1dac90;
-     font-weight: bold;
-     margin: 6px 0;
-}
-/*SEARCHBAR*/
- .searchbar input {
-     padding: 5px 5px 5px 0;
-     text-indent: 21px;
-     border: 1px solid rgb(218, 217, 217);
-     border-radius: 2px;
-     color: rgb(77, 77, 77);
-     width: 300px;
-     display: inline-block;
-     vertical-align: middle;
-}
- .searchbar button {
-     display: inline-block;
-     vertical-align: middle;
-     border: 1px solid rgb(218, 217, 217);
-     border-radius: 2px;
-     background-color: #fafafa;
-     padding: 2px;
-     cursor: pointer;
-}
- .searchbar label {
-     display: none;
-}
- footer {
-     text-align: center;
-     margin-top: 5px;
-     position: relative;
-     width: 100%;
-     padding: 8px;
-}
-/* Pagination */
- .pagination {
-     margin-top: 20px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
- .pagination a {
-     padding: 4px 10px;
-     border: 1px solid #ccc;
-     border-radius: 5px;
-     margin: 0 4px;
-     color: #6f4380;
-     text-decoration: none;
-     transition: background-color 0.3s ease;
-}
- .pagination a:hover {
-     background-color: #f0f0f0;
-}
- .pagination .current {
-     font-weight: bold;
-     background-color: #6f4380;
-     color: #fff;
-     padding: 4px 10px;
-     border: 1px solid #6f4380;
-     border-radius: 5px;
-     margin: 0 4px;
-}
- .pagination span.step-links {
-     display: flex;
-     align-items: center;
-}
- .pagination span.step-links a {
-     margin: 0 2px;
-}
- .pagination span.step-links a:hover {
-     background-color: transparent;
-}
-/*SEARCHBAR*/
- .searchbar-container {
-     margin-bottom: 30px;
-}
- .searchbar input {
-     background-color: #fafafa;
-     border-radius: 5px;
-     width: 300px;
-     outline: none;
-     border: 1px solid rgb(218, 217, 217);
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.user-name {
+    display: flex;
+    gap: 25px;
+    align-items: center;
 }
 
- .searchbar button {
-     border-radius: 5px;
-     background-color: #fafafa;
-     padding: 2px;
+.user-details span {
+    font-size: 10px;
 }
- .searchbar button:hover{
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+.user-name h3 a {
+    color: #6f4380;
 }
+
+.user-name img {
+    height: 32px;
+    width: 42px;
+    border-radius: 5px;
+}
+
+
+.container-drawings {
+    width: 750px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 8px;
+}
+
+.card {
+    display: flex;
+    width: 210px;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.7rem;
+}
+
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 290px;
+}
+
+.content {
+    overflow: hidden;
+}
+
+.content img {
+    width: 100%;
+    height: 125px;
+    overflow: hidden;
+    display: block;
+}
+
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+    border-top: 1px solid #ccc;
+}
+
+.top {
+    padding: 6px;
+    border-bottom: 1px solid #ccc;
+}
+
+.bottom a {
+    color: gray;
+}
+
+.like {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.like img{
+    width: 24px;
+    height: 24px;
+}
+
+.kid-owner p {
+    color: #1dac90;
+    font-weight: bold;
+    margin: 6px 0;
+}
+
+/*SEARCHBAR*/
+.searchbar input {
+    padding: 5px 5px 5px 0;
+    text-indent: 21px;
+    border: 1px solid rgb(218, 217, 217);
+    border-radius: 2px;
+    color: rgb(77, 77, 77);
+    width: 300px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.searchbar button {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid rgb(218, 217, 217);
+    border-radius: 2px;
+    background-color: #fafafa;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.searchbar label {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 5px;
+    position: relative;
+    width: 100%;
+    padding: 8px;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 4px;
+    color: #6f4380;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination .current {
+    font-weight: bold;
+    background-color: #6f4380;
+    color: #fff;
+    padding: 4px 10px;
+    border: 1px solid #6f4380;
+    border-radius: 5px;
+    margin: 0 4px;
+}
+
+.pagination span.step-links {
+    display: flex;
+    align-items: center;
+}
+
+.pagination span.step-links a {
+    margin: 0 2px;
+}
+
+.pagination span.step-links a:hover {
+    background-color: transparent;
+}
+
+/*SEARCHBAR*/
+.searchbar-container {
+    margin-bottom: 30px;
+}
+
+.searchbar input {
+    background-color: #fafafa;
+    border-radius: 5px;
+    width: 300px;
+    outline: none;
+    border: 1px solid rgb(218, 217, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.searchbar button {
+    border-radius: 5px;
+    background-color: #fafafa;
+    padding: 2px;
+}
+
+.searchbar button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /*NO POSTS YET*/
- .no-posts-yet{
-     display: flex;
-     flex-direction: column;
-     gap: 20px;
-     align-items: center;
-     margin-bottom: 45px;
-     color: gray;
+.no-posts-yet {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 45px;
+    color: gray;
 }
- .no-posts-yet img{
-     height: 180px;
+
+.no-posts-yet img {
+    height: 180px;
 }
