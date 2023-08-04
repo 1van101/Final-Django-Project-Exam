@@ -5,7 +5,9 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import generic as views
 from django.contrib.auth import views as auth_view
-from FINAL_EXAM.accounts.forms import AppUserCreateForm, LoginForm, AppUserEditForm
+from FINAL_EXAM.accounts.forms import AppUserCreateForm, LoginForm, AppUserEditForm, FilterKidsForm
+from FINAL_EXAM.drawings.models import Drawing
+from FINAL_EXAM.kids.models import Kid
 
 UserModel = get_user_model()
 
@@ -40,13 +42,27 @@ class UserDetailsView(views.DetailView):
     template_name = 'accounts/user-details-page.html'
     model = UserModel
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         is_owner = self.request.user == self.object
+        user_kids = Kid.objects.all().filter(user_id=self.object.id)
+        all_drawings = Drawing.objects.filter(user_id=self.object.id)
+
+        filter_form = FilterKidsForm(user=self.object, data=self.request.GET)
+        if filter_form.is_valid():
+            filter_by_kid_name_id = filter_form.cleaned_data['filter_by_kid_name']
+
+            # Check if a selection was made before filtering drawings
+            if filter_by_kid_name_id:
+                filtered_kid = user_kids.get(id=filter_by_kid_name_id)
+                all_drawings = Drawing.objects.filter(kid_owner_drawing=filtered_kid)
 
         context.update({
             'is_owner': is_owner,
-            # 'user': self.request.user
+            'user_kids': user_kids,
+            'form': filter_form,
+            'all_drawings': all_drawings
         })
         return context
 

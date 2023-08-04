@@ -11,7 +11,15 @@ urlpatterns = (
         path('', UserDetailsView.as_view(), name='details profile'),
         path('edit/', UserEditView.as_view(), name='edit profile'),
         path('delete/', UserDeleteView.as_view(), name='delete profile'),
-        path('kid/', include('FINAL_EXAM.kids.urls'))
     ])),
 
 )
+
+# urlpatterns = [
+#     path('register/', UserRegisterView.as_view(), name='register user'),
+#     path('login/', UserLoginView.as_view(), name='login user'),
+#     path('logout/', UserLogoutView.as_view(), name='logout user'),
+#     path('profile/<int:pk>/', UserDetailsView.as_view(), name='details profile'),
+#     path('profile/<int:pk>/edit/', UserEditView.as_view(), name='edit profile'),
+#     path('profile/<int:pk>/delete/', UserDeleteView.as_view(), name='delete profile'),
+# ]

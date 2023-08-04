@@ -43,14 +43,15 @@
                     <div class="card">
                         <div class="top">
                             <div class="user-details">
-                                <div class="user-name"><a href="#">
+
+                                <div class="user-name"><a href="{% url 'details profile' pk=drawing.user.pk %}">
                                     {% if drawing.user.profile_picture %}
                                         <img src="{{ drawing.user.profile_picture }}" alt="">
                                     {% else %}
                                         <img src="{% static 'images/default-avatar.jpg' %}" alt="">
                                     {% endif %}
                                 </a>
-                                    <h3><a href="#">{{ drawing.user.full_name }}</a></h3>
+                                    <h3><a href="{% url 'details profile' pk=drawing.user.pk %}">{{ drawing.user.full_name }}</a></h3>
                                 </div>
 
                             </div>
@@ -68,26 +69,12 @@
                                     {% else %}
                                         <img src="{% static 'images/like-transparent.png' %}" alt="">
                                     {% endif %}
-                                    {#                            <svg style="color: red"#}
-                                    {#                                 xmlns="http://www.w3.org/2000/svg"#}
-                                    {#                                 width="24"#}
-                                    {#                                 height="24"#}
-                                    {#                                 fill="currentColor"#}
-                                    {#                                 class="bi bi-heart-fill"#}
-                                    {#                                 viewBox="0 0 16 16">#}
-                                    {#                                <!-- Coordinate path -->#}
-                                    {#                                <path fill-rule="evenodd"#}
-                                    {#                                      d="M8 1.314C12.438-3.248 23.534 4.735#}
-                                    {#                                                  8 15-7.534 4.736 3.562-3.248 8 1.314z"#}
-                                    {#                                      fill="red">#}
-                                    {##}
-                                    {#                                </path>#}
-                                    {#                            </svg>#}
+
 
                                 </a>
                                 <p>{{ drawing.like_set.count }} likes</p>
                             </div>
-                            <a href="#" class="kid-owner">
+                            <a href="{% url 'details kid' drawing.user_id drawing.kid_owner_drawing.slug %}" class="kid-owner">
                                 <p>{{ drawing.kid_owner_drawing.name }}</p>
                             </a>
                             <a href="">

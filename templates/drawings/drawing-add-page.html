@@ -10,8 +10,7 @@
         <div class="login-register-container">
             <div class="login-register-box">
                 <h1 class="add-drawing-h1">Add drawing</h1>
-                {{ user }}
-                {{ uuser }}
+
 
                 <form method='post' action="{% url 'add drawing' %}" enctype="multipart/form-data">
                     {{ form.drawing}}

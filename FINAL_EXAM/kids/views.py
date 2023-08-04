@@ -1,12 +1,13 @@
 from django.contrib.auth import get_user_model
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic as views
 
+from FINAL_EXAM.drawings.models import Drawing
 from FINAL_EXAM.kids.forms import AddKidForm
 from FINAL_EXAM.kids.models import Kid
 
-
+UserModel = get_user_model()
 class AddKidView(views.CreateView):
     form_class = AddKidForm
     template_name = 'kids/kid-add-page.html'
@@ -28,7 +29,17 @@ class AddKidView(views.CreateView):
 
 
 class DetailsKidView(views.DetailView):
-    pass
+    template_name = 'kids/kids-details-page.html'
+    model = Kid
+    drawings = Drawing.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        kid_drawings = self.drawings.filter(kid_owner_drawing_id=self.object.id)
+        context['kid_drawings'] = kid_drawings
+        return context
+
+
 
 
 class EditKidView(views.UpdateView):

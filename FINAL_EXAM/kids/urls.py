@@ -4,9 +4,10 @@ from FINAL_EXAM.kids.views import AddKidView, DetailsKidView, EditKidView, Delet
 
 urlpatterns = (
     path('add/', AddKidView.as_view(), name='add kid'),
-    path('<slug:slug>/', include([
+    path('<str:user>/kid/<slug:slug>/', include([
         path('', DetailsKidView.as_view(), name='details kid'),
-        path('', EditKidView.as_view(), name='edit kid'),
-        path('', DeleteKidView.as_view(), name='delete kid'),
+        path('edit/', EditKidView.as_view(), name='edit kid'),
+        path('delete/', DeleteKidView.as_view(), name='delete kid'),
     ]))
 )
+

@@ -310,9 +310,11 @@ footer {
     gap: 20px;
     align-items: center;
     margin-bottom: 45px;
-    color: gray;
+    color: #606060;
+    font-size: 18px;
 }
 
 .no-posts-yet img {
     height: 180px;
 }
+

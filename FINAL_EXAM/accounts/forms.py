@@ -1,6 +1,8 @@
 from django.contrib.auth import forms as auth_forms, get_user_model
 from django import forms
 
+from FINAL_EXAM.kids.models import Kid
+
 UserModel = get_user_model()
 
 
@@ -33,3 +35,15 @@ class AppUserEditForm(forms.ModelForm):
             'profile_picture': 'Image:',
             'gender': 'Gender:',
         }
+
+
+class FilterKidsForm(forms.Form):
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        choices = [('', 'All kids')]  # Placeholder choice
+        choices += [(kid.id, kid) for kid in Kid.objects.filter(user=user)]
+        self.fields['filter_by_kid_name'] = forms.ChoiceField(
+            choices=choices,
+            required=False,
+            widget=forms.Select(attrs={'onchange': 'this.form.submit();'})
+        )

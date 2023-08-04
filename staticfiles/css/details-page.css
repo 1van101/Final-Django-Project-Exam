@@ -1,97 +1,169 @@
-.prof-details-h1{
-     color: #6f4380
-}
- .profile-container{
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-}
- .image{
-     align-self: center;
-     width: 250px;
-}
- /*.image:hover{*/
- /*    width: 270px;*/
- /*}*/
- .user-information{
-     display: flex;
-     justify-content: center;
-     margin-top: 40px;
-     gap: 100px;
-}
- .image img{
-     width: 100%;
-     border-radius: 8px;
-     box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
+.prof-details-h1 {
+    color: #6f4380
 }
 
- .data-male{
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     font-size: 20px;
-     color: #2f82b9;
-     font-weight: bold;
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
- .data-female{
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     font-size: 20px;
-     color: deeppink;
-     font-weight: bold;
+
+.image {
+    align-self: center;
+    width: 250px;
 }
- .owner-anchors{
-     display: flex;
-     gap: 18px;
-     margin-top: 20px;
+
+/*.image:hover{*/
+/*    width: 270px;*/
+/*}*/
+.user-information {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 100px;
 }
- .owner-anchors a{
-     /*border: 2px solid gray;*/
-     /*box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);*/
-     /*border-radius: 6px;*/
-     padding: 2px 6px;
- }
-  .owner-anchors a img{
-      width: 26px;
-  }
- /*.owner-anchors a:hover{*/
- /*    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.5);*/
- /*}*/
- .prof-details-h2{
-     margin-top: 60px;
-     color: #6f4380;
+
+.image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
 }
- .kids-drawings{
-     margin-top: 20px;
-     display: grid;
-     grid-template-columns: repeat(2, 1fr);
-     gap: 30px;
+
+.data-male {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #2f82b9;
+    font-weight: bold;
 }
- .kid-drawing img{
-     width: 360px;
+
+.data-female {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    color: deeppink;
+    font-weight: bold;
 }
- .kid-drawing-card{
-     padding: 16px 0 12px 0;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     gap: 16px;
-     border: 1px solid gray;
-     box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
-     border-radius: 6px;
-     background-color: white;
+
+.data-kids {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #d96f22;
+    font-weight: bold;
 }
- .kid-drawing-card:hover{
-     box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.5);
+
+.owner-anchors {
+    display: flex;
+    justify-content: space-around;
+    gap: 18px;
+    margin-top: 5px;
+    border-top: 2px dashed gray;
+    padding-top: 5px;
+
 }
- .kid-drawing-card a:active{
-     color: #1dac90;
+
+.owner-anchors a {
+    border: 2px solid gray;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 2px 6px;
 }
- .kid-drawing-card a:visited{
-     color: #1dac90;
+
+.owner-anchors a img {
+    width: 26px;
 }
- .kid-drawing-card a{
-     color: #1dac90;
+
+.owner-anchors a:hover {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
+
+.prof-details-h2 {
+    margin: 60px 0 50px 0;
+    color: #6f4380;
+
+}
+
+.kids-drawings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.kid-drawing img {
+    width: 320px;
+    height: 300px;
+}
+
+
+
+.kid-drawing-card {
+    padding: 16px 0 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid gray;
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
+    border-radius: 6px;
+    background-color: white;
+}
+
+.kid-drawing-card:hover {
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.5);
+    z-index: 1;
+    scale: 1.4;
+    transition: 0.4s;
+}
+
+.kid-drawing-card a:active {
+    color: #1dac90;
+}
+
+.kid-drawing-card a:visited {
+    color: #1dac90;
+}
+
+.kid-drawing-card a {
+    color: #1dac90;
+}
+
+
+.form-filter-kids {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-filter-kids label {
+    font-size: 18px;
+    color: #6f4380;
+    margin-right: 10px;
+}
+
+.form-filter-kids select {
+    width: auto;
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-filter-kids select:hover {
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+
+
+
