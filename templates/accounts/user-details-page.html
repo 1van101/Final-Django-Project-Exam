@@ -67,26 +67,27 @@
         </form>
         <h2 class="prof-details-h2">Kids and Drawings</h2>
         <div class="user-kids-drawings">
-        {% if all_drawings %}
-            <section class="kids-drawings">
+            {% if all_drawings %}
+                <section class="kids-drawings">
 
                     {% for drawing in all_drawings %}
                         <div class="kid-drawing-card">
-                            <h3><a href="{% url 'details kid' drawing.kid_owner_drawing.user_id drawing.kid_owner_drawing.slug %}"> {{ drawing.kid_owner_drawing.name }} </a></h3>
-                            <div class="kid-drawing"><img
-                                    src="{{ drawing.drawing.url }}" alt="">
+                            <h3>
+                                <a href="{% url 'details kid' drawing.kid_owner_drawing.user_id drawing.kid_owner_drawing.slug %}"> {{ drawing.kid_owner_drawing.name }} </a>
+                            </h3>
+                            <div class="kid-drawing"><a href=""><img
+                                    src="{{ drawing.drawing.url }}" alt=""></a>
                             </div>
 
                         </div>
                     {% endfor %}
-            </section>
-                {% else %}
-                    <div class="no-posts-yet">
-                        <img src="{% static 'images/not-found.png' %}" alt="">
-                        <p>No drawings yet...</p>
-                    </div>
-                {% endif %}
-
+                </section>
+            {% else %}
+                <div class="no-posts-yet">
+                    <img src="{% static 'images/not-found.png' %}" alt="">
+                    <p>No drawings yet...</p>
+                </div>
+            {% endif %}
 
 
         </div>
