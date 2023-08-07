@@ -9,9 +9,14 @@ class AddKidForm(forms.ModelForm):
         model = Kid
         fields = '__all__'
         exclude = ('user',)
-        # widgets = {
-        #     'date_of_birth': AdminDateWidget(),
-        # }
 
-    # def __init__(self, *args, **kwargs):
-    #     super(AddKidForm, self).__init__(*args, **kwargs)
+
+class KidEditForm(forms.ModelForm):
+    class Meta:
+        model = Kid
+        fields = ['name', 'personal_photo']
+
+        labels = {
+            'name': 'Kid name:',
+            'personal_photo': 'Kid photo:',
+        }
