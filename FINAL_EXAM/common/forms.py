@@ -1,5 +1,6 @@
 from django import forms
 
+from FINAL_EXAM.common.models import Comment
 
 
 class SearchForm(forms.Form):
@@ -10,3 +11,12 @@ class SearchForm(forms.Form):
             }
         )
     )
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'placeholder': 'Add comment...'})
+        }

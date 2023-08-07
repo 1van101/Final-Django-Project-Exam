@@ -10,15 +10,15 @@
      flex-direction: column;
      gap: 35px;
 }
- .login-register-box .login-h1{
-     color: #6f4380;
-}
- .login-register-box .register-h1{
-     color: #e36c8f;
-}
- .login-register-box .add-drawing-h1{
-     color: #fdc473;
-}
+/* .login-register-box .login-h1{*/
+/*     color: #6f4380;*/
+/*}*/
+/* .login-register-box .register-h1{*/
+/*     color: #e36c8f;*/
+/*}*/
+/* .login-register-box .add-drawing-h1{*/
+/*     color: #fdc473;*/
+/*}*/
  .login-register-box form {
      display: flex;
      width: 300px;
@@ -99,3 +99,8 @@
  #id_drawing {
      padding: 5px;
 }
+
+
+ .label-input label{
+     color: #6f4380;
+ }

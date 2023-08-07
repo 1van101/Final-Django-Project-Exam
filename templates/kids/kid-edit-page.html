@@ -2,7 +2,7 @@
 {% load custom_filters %}
 {% load static %}
 
-{% url 'edit profile' object.pk as edit_profile_url %}
+{% url 'edit kid' object.user_id object.slug as edit_profile_url %}
 
 
 {% block content %}

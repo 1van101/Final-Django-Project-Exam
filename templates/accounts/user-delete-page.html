@@ -1,24 +1,10 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
+{% url 'delete profile' pk=prequest.user.pk as delete_profile_url %}
+
+
 
 {% block content %}
-<body style="background-image: url('{% static "images/default-page.jpg" %}');">
-    <main>
-
-        <div class="delete-profile">
-            <h1>
-                Are you sure you want to delete your profile?
-            </h1>
-            <form method="post" action="{% url 'delete profile' request.user.pk %}">
-                {% csrf_token %}
-                <div class="sure-buttons">
-                    <button>Yes</button>
-                    <a class="edit-btn" href="javascript:history.back()">Go Back</a>
-                </div>
-            </form>
-        </div>
-
-    </main>
-</body>
+    {% include 'partials/delete-page.html' with delete_action=delete_profile_url %}
 {% endblock %}

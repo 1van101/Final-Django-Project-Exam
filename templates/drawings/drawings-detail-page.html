@@ -1,0 +1,112 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
+    <div class="kid-drawing-container">
+
+
+        <div class="kid-drawing-details">
+            <h3>
+                {{ drawing.kid_owner_drawing.name }}
+            </h3>
+            <div class="kid-drawing-details-img"><img
+                    src="{{ drawing.drawing.url }}" alt="">
+            </div>
+
+            {% if is_owner %}
+                <a href="{% url 'delete drawing' object.pk %}" title="Delete drawing">
+                    <img class="delete-button" src="{% static 'images/delete (1).png' %}" alt="delete">
+                </a>
+            {% endif %}
+        </div>
+        <div class="like-details-drawing">
+            <p class="post-time">{{ drawing.date_of_publication }}</p>
+            <a href="{% url 'like functionality' drawing.id %}">
+                {% if drawing.id in liked_drawings_by_user %}
+                    <img src="{% static 'images/like.png' %}" alt="">
+                {% else %}
+                    <img src="{% static 'images/like-transparent.png' %}" alt="">
+                {% endif %}
+
+
+            </a>
+
+            <p id="count-likes">{{ drawing.like_set.count }} likes</p>
+            <div id="peopleLiked"></div>
+
+            <script>
+                let likesCount = document.getElementById('count-likes');
+                likesCount.addEventListener('click', function () {
+
+                    let newDiv = document.getElementById('peopleLiked');
+                    if (newDiv.className === '') {
+                        let newUl = document.createElement('ul');
+                        newUl.innerHTML = '{% for name in likes_list %}<li>{{ name }}</li>{% endfor %}';
+
+                        newDiv.appendChild(newUl)
+                        newDiv.className = 'active'
+                    } else {
+                        newDiv.className = ''
+                        {#newDiv.innerHTML = ''#}
+                        removeAllChildrenElements(newDiv)
+                    }
+                })
+
+                function removeAllChildrenElements(element) {
+                    while (element.firstChild) {
+                        element.removeChild(element.firstChild);
+                    }
+                }
+            </script>
+        </div>
+
+
+    </div>
+
+
+    <div class="comments-container">
+        <div class="comments">
+            {% for comment in comments %}
+                <div class="comment">
+                    <div class="comment-user-details">
+                        <div class="comment-user-image">
+                            {% if comment.user.profile_picture %}
+                                <a href="{% url 'details profile' comment.user.pk %}"><img
+                                        src="{{ comment.user.profile_picture }}" alt="User Avatar"></a>
+                            {% else %}
+                                <a href="{% url 'details profile' comment.user.pk %}"><img
+                                        src="{% static 'images/default-avatar.jpg' %}" alt="Default Avatar"></a>
+                            {% endif %}
+                        </div>
+                        <p class="comment-username">
+                            <a href="{% url 'details profile' comment.user.pk %}">{{ comment.user.username }}</a>
+                        </p>
+                    </div>
+                    <div class="user-comment-content">
+                        <p class="comment-text">{{ comment.text }}</p>
+                        <span class="comment-timestamp">{{ comment.datetime_of_publication }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="add-comment">
+            <form method="post" action="{% url 'add comment' drawing.pk %}">
+                {{ comment_form }}
+                {% csrf_token %}
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="go-back">
+        <a class="go-back-button" href="javascript:history.back()">Go Back</a>
+    </div>
+
+
+    </body>
+
+
+{% endblock %}

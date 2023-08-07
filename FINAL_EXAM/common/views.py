@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.views import generic as views
 
-from FINAL_EXAM.common.forms import SearchForm
-from FINAL_EXAM.common.models import Like
+from FINAL_EXAM.common.forms import SearchForm, CommentForm
+from FINAL_EXAM.common.models import Like, Comment
 from FINAL_EXAM.drawings.models import Drawing
 from FINAL_EXAM.kids.models import Kid
 
@@ -50,3 +51,23 @@ def like_functionality(request, drawing_id):
         like.save()
 
     return redirect(request.META['HTTP_REFERER'] + f'#{drawing_id}')
+
+
+class AddCommentView(LoginRequiredMixin, views.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def form_valid(self, form):
+        drawing_id = self.kwargs['drawing_id']
+        drawing = Drawing.objects.get(id=drawing_id)
+
+        comment = form.save(commit=False)
+        comment.to_drawing = drawing
+        comment.user = self.request.user
+        comment.save()
+
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        drawing_id = self.kwargs['drawing_id']
+        return f'{self.request.META["HTTP_REFERER"]}#{drawing_id}'

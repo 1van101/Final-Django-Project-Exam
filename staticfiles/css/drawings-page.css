@@ -1,0 +1,235 @@
+.kid-drawing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border: 1px solid gray;
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);
+    margin: 60px auto 60px auto;
+}
+
+.kid-drawing-details h3 {
+    text-align: center;
+    padding: 22px;
+    color: #e5e5e5;
+    font-size: 32px;
+}
+
+.kid-drawing-details {
+    width: 80%;
+}
+
+/*.kid-drawing-details img{*/
+/*    margin-bottom: 32px;*/
+/*}*/
+.kid-drawing-details-img img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.post-time {
+    text-align: center;
+    padding: 18px;
+    color: #e5e5e5;
+}
+
+/*-------------------------------------------------*/
+/* Container for the comments section */
+.comments-container {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+/* Comments section */
+.comments {
+    /*border: 1px solid #e5e5e5;*/
+    border-radius: 5px;
+    padding: 10px;
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
+}
+
+/* Individual comment */
+.comment {
+    display: flex;
+    margin-bottom: 17px;
+}
+
+/* User image */
+.comment-user-image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* User details */
+.comment-user-details {
+    margin-right: 10px;
+}
+
+.comment-username a {
+    font-weight: bold;
+    color: #385898;
+    text-decoration: none;
+}
+
+/* Comment content */
+.user-comment-content {
+    flex: 1;
+    padding: 7px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+}
+
+.comment-text {
+    margin: 0;
+}
+
+/* Add comment section */
+.add-comment {
+    margin-top: 20px;
+    /*border: 1px solid #e5e5e5;*/
+    border-radius: 5px;
+    padding: 10px;
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
+}
+
+.add-comment form {
+    display: flex;
+    align-items: center;
+}
+
+.add-comment form label {
+    margin-right: 23px;
+}
+
+.add-comment textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    resize: none;
+    margin-right: 10px;
+}
+
+.add-comment button {
+    padding: 8px 15px;
+    background-color: #d66d8e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-comment button:hover {
+    background-color: #684e7f;
+}
+
+.comment-timestamp {
+    font-size: 12px;
+    color: #777;
+    margin-top: 3px;
+}
+
+
+.delete-button {
+    display: block;
+    padding: 8px 15px;
+    /*background-color: #d66d8e;*/
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: -60px;
+}
+
+.delete-button:hover {
+    background-color: #684e7f;
+}
+
+.kid-drawing-details {
+    /* Existing styles */
+    position: relative; /* Add this */
+}
+
+
+.go-back {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.go-back-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #d66d8e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.go-back-button:hover {
+    background-color: #684e7f;
+}
+
+/*LIKE*/
+
+.like-details-drawing {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.like-details-drawing img {
+    width: 32px;
+    height: 32px;
+}
+
+#count-likes {
+    cursor: pointer;
+}
+
+
+/*--------------------------------*/
+/*#peopleLiked {*/
+/*    position: relative;*/
+/*    display: none;*/
+/*    width: 80%;*/
+/*    height: 100%;*/
+
+/*    !*justify-content: center;*!*/
+/*    !*align-items: center;*!*/
+/*    margin-right: 67px;*/
+/*}*/
+
+#peopleLiked.active {
+    display: flex; /* Show the container when the active class is applied */
+    justify-content: center;
+    align-items: center;
+}
+
+#peopleLiked ul {
+    list-style: none;
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#peopleLiked li {
+    margin-bottom: 6px;
+}

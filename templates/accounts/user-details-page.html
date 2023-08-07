@@ -8,89 +8,89 @@
 
         <div class="profile-details-container">
             <section class="personal-information">
-                <div class="user-information">
-                    <div class="image">
-                        {% if not object.profile_picture %}
-                            <img src="{% static 'images/default-avatar.jpg' %}" alt="img8">
+                <div class="user-information-outer">
+                    <div class="user-information">
+                        <div class="image">
+                            {% if not object.profile_picture %}
+                                <img src="{% static 'images/default-avatar.jpg' %}" alt="img8">
+                            {% else %}
+                                <img src="{{ object.profile_picture }}" alt="img8">
+                            {% endif %}
+                        </div>
+                        {% if object.gender == 'Female' %}
+                            <div class="data-female">
+                        {% elif object.gender == 'Male' %}
+                            <div class="data-male">
                         {% else %}
-                            <img src="{{ object.profile_picture }}" alt="img8">
+                            <div class="data-not-gender">
                         {% endif %}
-                    </div>
-                    {% if object.gender == 'Male' %}
-                        <div class="data-male">
-                    {% else %}
-                        <div class="data-female">
-                    {% endif %}
 
 
-                    <p><img src="{% static 'images/name.png' %}" alt="name"> {{ object.full_name }}</p>
-                    <p><img src="{% static 'images/email.png' %}" alt="email"> {{ object.email }}</p>
-                    {% if object.gender %}
-                        <p><img src="{% static 'images/gender.png' %}" alt="gender"> {{ object.gender }}</p>
-                    {% endif %}
-                    {#                    {% if user_kids %}#}
-                    {#                        <div class="user-kids">#}
-                    {#                            <img src="{% static 'images/user-kids.png' %}" alt="name">#}
-                    {#                            <a href="#">Show {{ object.username }}'s kids</a>#}
-                    {#                        </div>#}
-                    {#                    {% endif %}#}
-                    <div class="owner-anchors">
-                        {% if is_owner %}
-                            <a href="{% url 'add kid' %}" title="Add kid">
-                                <img class="add-kid" src="{% static 'images/children (1).png' %}" alt="add">
-                            </a>
-                            <a href="{% url 'edit profile' object.pk %}" title="Edit profile">
-                                <img class="edit" src="{% static 'images/edit (1).png' %}" alt="edit">
-                            </a>
-
-                            <a href="{% url 'delete profile' object.pk %}" title="Delete profile">
-                                <img class="delete" src="{% static 'images/delete (1).png' %}" alt="delete">
-                            </a>
+                        <p><img src="{% static 'images/name.png' %}" alt="name"> {{ object.full_name }}</p>
+                        <p><img src="{% static 'images/email.png' %}" alt="email"> {{ object.email }}</p>
+                        {% if object.gender %}
+                            <p><img src="{% static 'images/gender.png' %}" alt="gender"> {{ object.gender }}</p>
                         {% endif %}
-                    </div>
-                    </div>
+                        {#                    {% if user_kids %}#}
+                        {#                        <div class="user-kids">#}
+                        {#                            <img src="{% static 'images/user-kids.png' %}" alt="name">#}
+                        {#                            <a href="#">Show {{ object.username }}'s kids</a>#}
+                        {#                        </div>#}
+                        {#                    {% endif %}#}
 
+                        <div class="owner-anchors">
+                            {% if is_owner %}
+                                {% if not object.is_visitor  %}
+                                    <a href="{% url 'add kid' %}" title="Add kid">
+                                        <img class="add-kid" src="{% static 'images/children (1).png' %}" alt="add">
+                                    </a>
+                                {% endif %}
+                                <a href="{% url 'edit profile' object.pk %}" title="Edit profile">
+                                    <img class="edit" src="{% static 'images/edit (1).png' %}" alt="edit">
+                                </a>
+
+                                <a href="{% url 'delete profile' object.pk %}" title="Delete profile">
+                                    <img class="delete" src="{% static 'images/delete (1).png' %}" alt="delete">
+                                </a>
+                            {% endif %}
+                        </div>
+                        </div>
 
             </section>
-        </div>
-        {#    <form>#}
-        {#    <label for="name">Select a Name:</label>#}
-        {#    <select id="name" name="name">#}
-        {#        {% for name in user_kids %}#}
-        {#            <option value="{{ name }}">{{ name }}</option>#}
-        {#        {% endfor %}#}
-        {#    </select>#}
-        {#    <input type="submit" value="Submit">#}
-        {#</form>#}
-        <form class="form-filter-kids" method="get">
-            {{ form }}
-        </form>
-        <h2 class="prof-details-h2">Kids and Drawings</h2>
-        <div class="user-kids-drawings">
-            {% if all_drawings %}
-                <section class="kids-drawings">
 
-                    {% for drawing in all_drawings %}
-                        <div class="kid-drawing-card">
-                            <h3>
-                                <a href="{% url 'details kid' drawing.kid_owner_drawing.user_id drawing.kid_owner_drawing.slug %}"> {{ drawing.kid_owner_drawing.name }} </a>
-                            </h3>
-                            <div class="kid-drawing"><a href=""><img
-                                    src="{{ drawing.drawing.url }}" alt=""></a>
+        </div>
+
+        {% if not object.is_visitor %}
+            <form class="form-filter-kids" method="get">
+                {{ form }}
+            </form>
+            <h2 class="prof-details-h2">Kids and Drawings</h2>
+            <div class="user-kids-drawings">
+                {% if all_drawings %}
+                    <section class="kids-drawings">
+
+                        {% for drawing in all_drawings %}
+                            <div class="kid-drawing-card">
+                                <h3>
+                                    <a href="{% url 'details kid' drawing.kid_owner_drawing.user_id drawing.kid_owner_drawing.slug %}"> {{ drawing.kid_owner_drawing.name }} </a>
+                                </h3>
+                                <div class="kid-drawing"><a href="{% url 'details drawing' drawing.id %}"><img
+                                        src="{{ drawing.drawing.url }}" alt=""></a>
+                                </div>
+
                             </div>
-
-                        </div>
-                    {% endfor %}
-                </section>
-            {% else %}
-                <div class="no-posts-yet">
-                    <img src="{% static 'images/not-found.png' %}" alt="">
-                    <p>No drawings yet...</p>
-                </div>
-            {% endif %}
+                        {% endfor %}
+                    </section>
+                {% else %}
+                    <div class="no-posts-yet">
+                        <img src="{% static 'images/not-found.png' %}" alt="">
+                        <p>No drawings yet...</p>
+                    </div>
+                {% endif %}
 
 
-        </div>
+            </div>
+        {% endif %}
     </main>
     </body>
 {% endblock %}

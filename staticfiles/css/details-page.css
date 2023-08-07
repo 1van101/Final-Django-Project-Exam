@@ -1,5 +1,7 @@
 .prof-details-h1 {
-    color: #6f4380
+
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
 .profile-container {
@@ -17,11 +19,26 @@
 /*.image:hover{*/
 /*    width: 270px;*/
 /*}*/
+.user-information-outer {
+    display: inline-block;
+    padding: 2px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);
+}
+
 .user-information {
     display: flex;
+    background-image: url("../images/default-page(1).png");
     justify-content: center;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     gap: 100px;
+    background-color: #ededed;
+    padding: 10px;
+    /*border-width: 2px;*/
+    /*border-style: solid;*/
+    /*border-image: linear-gradient(45deg, #1dac90, #6f4380, #e36c8f);*/
+    /*border-image-slice: 1;*/
+    border-radius: 6px;
 }
 
 .image img {
@@ -35,7 +52,7 @@
     flex-direction: column;
     justify-content: space-between;
     font-size: 20px;
-    color: #2f82b9;
+    color: #1e6798;
     font-weight: bold;
 }
 
@@ -44,7 +61,16 @@
     flex-direction: column;
     justify-content: space-between;
     font-size: 20px;
-    color: deeppink;
+    color: #c83c65;
+    font-weight: bold;
+}
+
+.data-not-gender {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    color: dimgray;
     font-weight: bold;
 }
 
@@ -53,8 +79,16 @@
     flex-direction: column;
     justify-content: space-between;
     font-size: 20px;
-    color: #d96f22;
+    color: #647165;
     font-weight: bold;
+}
+
+.data-kids p a {
+    color: #647165;
+}
+
+.data-kids p a:visited {
+    color: #647165;
 }
 
 .owner-anchors {
@@ -84,7 +118,10 @@
 
 .prof-details-h2 {
     margin: 60px 0 50px 0;
-    color: #6f4380;
+    /*color: #6f4380;*/
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90); /* Adjust gradient colors */
+    -webkit-background-clip: text; /* Apply the gradient to the text content */
+    color: transparent; /* Make the text transparent to show the gradient */
 
 }
 
@@ -97,13 +134,13 @@
 
 .kid-drawing img {
     width: 320px;
-    height: 300px;
+    height: 100%;
+    overflow: hidden;
+    background-color: white;
 }
 
 
-
 .kid-drawing-card {
-    padding: 16px 0 12px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,7 +148,18 @@
     border: 1px solid gray;
     box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
     border-radius: 6px;
-    background-color: white;
+    overflow: hidden;
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);
+
+}
+
+.kid-drawing-card h3 {
+    margin: 20px auto 0 auto;
+}
+
+.kid-drawing {
+    height: 100%;
+    object-fit: cover;
 }
 
 .kid-drawing-card:hover {
@@ -122,11 +170,11 @@
 }
 
 .kid-drawing-card a:active {
-    color: #1dac90;
+    color: #e6e6e6;
 }
 
 .kid-drawing-card a:visited {
-    color: #1dac90;
+    color: #e6e6e6;
 }
 
 .kid-drawing-card a {

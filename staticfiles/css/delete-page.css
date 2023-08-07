@@ -1,0 +1,43 @@
+.delete-h1 {
+    color: #6f4380;
+}
+
+.sure-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Style for the button inside .sure-buttons */
+.sure-buttons button {
+    background-color: #e94848;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.sure-buttons button:hover {
+    scale: 1.2;
+}
+
+.sure-buttons .edit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #1dac90;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #1dac90;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sure-buttons .edit-btn:hover {
+    background-color: #1dac90;
+    color: #fff;
+    scale: 1.2;
+}

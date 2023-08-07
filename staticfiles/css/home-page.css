@@ -9,7 +9,12 @@
 a {
     text-decoration: none;
 }
+h1{
 
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);
+    -webkit-background-clip: text;
+    color: transparent;
+}
 body {
     font-family: 'Varela Round', sans-serif;
     background-image: url("../images/index.jpg");
@@ -48,21 +53,26 @@ main {
 
 
 .nav-item:nth-child(1) a i {
-    color: #1dac90;
-    text-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
+    color: #e36c8f;
+
 
 }
 
 .nav-item:nth-child(2) a i {
-    color: #fdc473;
+    background: linear-gradient(45deg, #e36c8f, #6f4380);
+    -webkit-background-clip: text;
+    color: transparent;
+
 }
 
 .nav-item:nth-child(3) a i {
-    color: #6f4380;
+    background: linear-gradient(45deg, #6f4380, #1dac90);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .nav-item:nth-child(4) a i {
-    color: #e36c8f;
+    color: #46908c;
 }
 
 .text-typing {
@@ -71,16 +81,15 @@ main {
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    color: #6f4380;
     margin-bottom: 8px;
 
 }
 
-.text-typing h1 {
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(22, end) forwards, blink 1s;
-}
+/*.text-typing h1 {*/
+/*    white-space: nowrap;*/
+/*    overflow: hidden;*/
+/*    !*animation: typing 4s steps(22, end) forwards, blink 1s;*!*/
+/*}*/
 
 .text-typing h4 {
     white-space: nowrap;
@@ -90,23 +99,23 @@ main {
     animation: typing 2s steps(22, end) forwards, blink 1s;
 }
 
-@keyframes typing {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
+/*@keyframes typing {*/
+/*    0% {*/
+/*        width: 0;*/
+/*    }*/
+/*    100% {*/
+/*        width: 100%;*/
+/*    }*/
+/*}*/
 
-@keyframes blink {
-    0%, 100% {
-        border-right: 2px solid transparent;
-    }
-    50% {
-        border-right: 2px solid #222;
-    }
-}
+/*@keyframes blink {*/
+/*    0%, 100% {*/
+/*        border-right: 2px solid transparent;*/
+/*    }*/
+/*    50% {*/
+/*        border-right: 2px solid #222;*/
+/*    }*/
+/*}*/
 
 /* CARD----------------------- */
 .user-name {
@@ -152,7 +161,8 @@ main {
 
 .card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    height: 290px;
+    scale: 1.1;
+    transition: 0.3s;
 }
 
 .content {
@@ -161,7 +171,7 @@ main {
 
 .content img {
     width: 100%;
-    height: 125px;
+    height: 170px;
     overflow: hidden;
     display: block;
 }

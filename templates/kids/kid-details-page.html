@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
+    <main>
+        <h1 class="prof-details-h1">Profile details of {{ object.name }}</h1>
+
+
+            <section class="personal-information">
+            <div class="profile-details-container">
+            <div class="user-information-outer">
+                <div class="user-information">
+                    <div class="image">
+                        {% if not object.personal_photo %}
+                            <img src="{% static 'images/default-avatar.jpg' %}" alt="img8">
+                        {% else %}
+                            <img src="{{ object.personal_photo }}" alt="img8">
+                        {% endif %}
+                    </div>
+                <div class="data-kids">
+
+
+                        <p><img src="{% static 'images/name.png' %}" alt="name" title="Name"> {{ object.name }}</p>
+                        <p><img src="{% static 'images/birthday.png' %}" alt="email" title="Date of birth"> {{ object.date_of_birth }}</p>
+                        <p><a href="{% url 'details profile' object.user_id%}"><img src="{% static 'images/kid_parent.png' %}" alt="email" title="Parent name"> {{ object.user.full_name }}</a></p>
+                    <div class="owner-anchors">
+{% if is_owner %}
+                            <a href="{% url 'edit kid' object.user_id object.slug %}" title="Edit profile">
+                                <img class="edit" src="{% static 'images/edit (1).png' %}" alt="edit">
+                            </a>
+                            <a href="{% url 'delete kid' object.user_id object.slug%}" title="Delete profile">
+                                <img class="delete" src="{% static 'images/delete (1).png' %}" alt="delete">
+                            </a>
+                        {% endif %}
+                    </div>
+                    </div>
+
+</div>
+{#                    <div class="data-kids">#}
+{##}
+{##}
+{#                        <p><img src="{% static 'images/name.png' %}" alt="name" title="Name"> {{ object.name }}</p>#}
+{#                        <p><img src="{% static 'images/birthday.png' %}" alt="email" title="Date of birth"> {{ object.date_of_birth }}</p>#}
+{#                        <p><a href="{% url 'details profile' object.user_id%}"><img src="{% static 'images/kid_parent.png' %}" alt="email" title="Parent name"> {{ object.user.full_name }}</a></p>#}
+{#                    </div>#}
+
+
+                </div>
+                </div>
+
+
+            </section>
+{#        </div>#}
+
+
+        <h2 class="prof-details-h2">Drawings</h2>
+        <div class="user-kids-drawings">
+            {% if kid_drawings %}
+                <section class="kids-drawings">
+
+                    {% for drawing in kid_drawings %}
+                        <div class="kid-drawing-card">
+
+                            <div class="kid-drawing">
+                                <a href="{% url 'details drawing' drawing.id %}">
+                                    <img src="{{ drawing.drawing.url }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </section>
+            {% else %}
+                <div class="no-posts-yet">
+                    <img src="{% static 'images/not-found.png' %}" alt="">
+                    <p>No drawings yet...</p>
+                </div>
+            {% endif %}
+
+
+        </div>
+    </main>
+    </body>
+{% endblock %}

@@ -77,9 +77,11 @@
                             <a href="{% url 'details kid' drawing.user_id drawing.kid_owner_drawing.slug %}" class="kid-owner">
                                 <p>{{ drawing.kid_owner_drawing.name }}</p>
                             </a>
-                            <a href="">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'details drawing' drawing.pk %}">
                                 <h4>See details</h4>
                             </a>
+                        {% endif %}
                             <p>{{ drawing.date_of_publication }}</p>
                             <!-- <div class="addComments">
                                 <form method="#" action="">
