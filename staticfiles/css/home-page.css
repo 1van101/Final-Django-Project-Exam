@@ -66,12 +66,17 @@ main {
 }
 
 .nav-item:nth-child(3) a i {
-    background: linear-gradient(45deg, #6f4380, #1dac90);
+    background: linear-gradient(45deg,#e36c8f, #6f4380, #1dac90);
     -webkit-background-clip: text;
     color: transparent;
 }
 
 .nav-item:nth-child(4) a i {
+    background: linear-gradient(45deg, #6f4380, #1dac90);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.nav-item:nth-child(5) a i {
     color: #46908c;
 }
 

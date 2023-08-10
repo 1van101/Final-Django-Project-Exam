@@ -169,7 +169,7 @@
     transition: 0.4s;
 }
 
-.kid-drawing-card a:active {
+.kid-drawing-card a:link {
     color: #e6e6e6;
 }
 
@@ -209,8 +209,26 @@
 
 
 
+.filtered-kids-container{
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
 
-
+.filtered-kids-container img{
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+}
+.filtered-kids-container h3 a:link{
+    color: dimgray;
+}
+.filtered-kids-container h3 a:visited{
+    color: dimgray;
+}
 
 
 
