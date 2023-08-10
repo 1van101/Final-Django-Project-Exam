@@ -1,4 +1,6 @@
 {% extends 'base/base.html' %}
+
+{% load custom_filters %}
 {% load static %}
 
 
@@ -15,7 +17,7 @@
                     src="{{ drawing.drawing.url }}" alt="">
             </div>
 
-            {% if is_owner %}
+            {% if is_owner|is_staff_or:request.user %}
                 <a href="{% url 'delete drawing' object.pk %}" title="Delete drawing">
                     <img class="delete-button" src="{% static 'images/delete (1).png' %}" alt="delete">
                 </a>

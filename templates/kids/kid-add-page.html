@@ -20,6 +20,7 @@
 
                     {{ form.name|placeholder:'Kid name' }}
                     {{ form.personal_photo|placeholder:'Kid photo' }}
+                        {{ form.user }}
 <input type="date" name="{{ form.date_of_birth.name }}" id="{{ form.date_of_birth.id_for_label }}"
            value="{{ form.date_of_birth.value|default_if_none:'' }}" placeholder="Date of birth">{#<input type="date" >#}
 

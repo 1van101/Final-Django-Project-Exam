@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
-
+{% load custom_filters %}
 {% block content %}
     <body style="background-image: url('{% static "images/default-page.jpg" %}');">
     <main>
@@ -25,7 +25,7 @@
                         <p><img src="{% static 'images/birthday.png' %}" alt="email" title="Date of birth"> {{ object.date_of_birth }}</p>
                         <p><a href="{% url 'details profile' object.user_id%}"><img src="{% static 'images/kid_parent.png' %}" alt="email" title="Parent name"> {{ object.user.full_name }}</a></p>
                     <div class="owner-anchors">
-{% if is_owner %}
+{% if is_owner|is_staff_or:request.user %}
                             <a href="{% url 'edit kid' object.user_id object.slug %}" title="Edit profile">
                                 <img class="edit" src="{% static 'images/edit (1).png' %}" alt="edit">
                             </a>

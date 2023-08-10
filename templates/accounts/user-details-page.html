@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
-
+{% load custom_filters %}
 {% block content %}
     <body style="background-image: url('{% static "images/default-page.jpg" %}');">
     <main>
@@ -26,21 +26,23 @@
                         {% endif %}
 
 
-                        <p><img src="{% static 'images/name.png' %}" alt="name"> {{ object.full_name }}</p>
-                        <p><img src="{% static 'images/email.png' %}" alt="email"> {{ object.email }}</p>
-                        {% if object.gender %}
-                            <p><img src="{% static 'images/gender.png' %}" alt="gender"> {{ object.gender }}</p>
+                        <p><img src="{% static 'images/name.png' %}" alt="name" title="Name"> {{ object.full_name }}</p>
+                        {% if object.is_superuser %}
+                            <p><img src="{% static 'images/profile-status.png' %}" alt="name" title="Profile permissions"> Superuser</p>
+                        {% elif object.is_staff and not object.is_superuser %}
+                            <p><img src="{% static 'images/profile-status.png' %}" alt="name" title="Profile permissions"> Staff User</p>
+                        {% else %}
+                            <p><img src="{% static 'images/profile-status.png' %}" alt="name" title="Profile permissions"> Regular User</p>
                         {% endif %}
-                        {#                    {% if user_kids %}#}
-                        {#                        <div class="user-kids">#}
-                        {#                            <img src="{% static 'images/user-kids.png' %}" alt="name">#}
-                        {#                            <a href="#">Show {{ object.username }}'s kids</a>#}
-                        {#                        </div>#}
-                        {#                    {% endif %}#}
+                        <p><img src="{% static 'images/email.png' %}" alt="email" title="Email"> {{ object.email }}</p>
+                        {% if object.gender %}
+                            <p><img src="{% static 'images/gender.png' %}" alt="gender" title="Gender"> {{ object.gender }}</p>
+                        {% endif %}
+
 
                         <div class="owner-anchors">
-                            {% if is_owner %}
-                                {% if not object.is_visitor  %}
+                            {% if is_owner|is_staff_or:request.user %}
+                                {% if not object.is_visitor %}
                                     <a href="{% url 'add kid' %}" title="Add kid">
                                         <img class="add-kid" src="{% static 'images/children (1).png' %}" alt="add">
                                     </a>
@@ -63,7 +65,20 @@
         {% if not object.is_visitor %}
             <form class="form-filter-kids" method="get">
                 {{ form }}
+
             </form>
+            {% if filtered_kid %}
+                <div class="filtered-kids-container">
+                    <a href="{% url 'details kid' request.user.pk filtered_kid.slug %}">
+                        <img src="{{ filtered_kid.personal_photo }}" alt="">
+                    </a>
+                    <h3><a href="{% url 'details kid' request.user.pk filtered_kid.slug %}">{{ filtered_kid.name }}</a>
+                    </h3>
+                </div>
+                {#            {% else %}#}
+
+            {% endif %}
+            <div class="kid-link"></div>
             <h2 class="prof-details-h2">Kids and Drawings</h2>
             <div class="user-kids-drawings">
                 {% if all_drawings %}

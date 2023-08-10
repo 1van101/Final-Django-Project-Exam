@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block content %}
-    <body style="background-image: url('{% static "images/default-page.jpg"%}');">
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
     <main>
 
         <div class="login-register-container">
@@ -13,11 +13,12 @@
 
 
                 <form method='post' action="{% url 'add drawing' %}" enctype="multipart/form-data">
-                    {{ form.drawing}}
+                    {{ form.drawing }}
                     {{ form.description|placeholder:'Add your description here...' }}
-                     {{ form.kid_owner_drawing }}
+                    {{ form.kid_owner_drawing }}
 
-                {% csrf_token %}
+
+                    {% csrf_token %}
 
                     <button type="submit">Add drawing</button>
                 </form>
@@ -26,5 +27,5 @@
         </div>
 
     </main>
-</body>
+    </body>
 {% endblock %}

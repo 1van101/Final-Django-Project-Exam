@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
+    <div class="not-found">
+
+        <img src="{% static 'images/404.png' %}" alt="404 not found">
+    </div>
+<h3 class="error-heading">Error 404 - page not found.</h3>
+    <div class="go-back">
+        <a class="go-back-button" href="javascript:history.back()">Go Back</a>
+    </div>
+    </body>
+{% endblock %}

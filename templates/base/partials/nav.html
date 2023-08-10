@@ -1,9 +1,18 @@
 {% load static %}
-
+{% load custom_filters %}
 
 <nav class="navbar">
     <div class="container-nav">
         <ul class="nav-group">
+            {% if request.user.is_staff %}
+                <li class="nav-item">
+
+                    <a href="{% url 'admin panel' %}">
+
+                        <i>Admin</i>
+                    </a>
+                </li>
+            {% endif %}
             <li class="nav-item">
 
                 <a href="{% url 'home page' %}">
@@ -12,17 +21,11 @@
                 </a>
             </li>
             {% if not request.user.is_visitor %}
+
                 <li class="nav-item">
-                    {% if user_kids %}
-                        <a href="{% url 'add drawing' %}">
-                            <i>Add Drawing</i>
-                        </a>
-                    {% else %}
-{#                        TODO: Add error page to add kid first!#}
-                        <a href="{% url 'add kid' %}">
-                            <i>Add Drawing</i>
-                        </a>
-                    {% endif %}
+                    <a href="{% url 'add drawing' %}">
+                        <i>Add Drawing</i>
+                    </a>
                 </li>
             {% endif %}
             {% if request.user.is_authenticated %}
