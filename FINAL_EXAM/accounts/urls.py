@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 from FINAL_EXAM.accounts.views import UserRegisterView, UserLogoutView, UserLoginView, UserDetailsView, UserEditView, \
-    UserDeleteView
+    UserDeleteView, show
 
 urlpatterns = (
     path('register/', UserRegisterView.as_view(), name='register user'),
