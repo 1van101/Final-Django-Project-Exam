@@ -18,19 +18,29 @@ class AddKidView(LoginRequiredMixin, views.CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({'user': self.request.user})
+        context.update({
+            'user': self.request.user,
+        })
+
         return context
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user  # Pass the 'user' to the form
+        return kwargs
+
     def dispatch(self, request, *args, **kwargs):
-        if self.request.user.is_visitor:
-            # If user is a visitor redirect them to home page
+        if self.request.user.is_authenticated and self.request.user.is_visitor:
             return redirect('home page')
 
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         kid = form.save(commit=False)
-        kid.user_id = self.request.user.pk
+
+        user_instance = UserModel.objects.get(pk=self.request.user.pk)
+        if not user_instance.is_staff:
+            kid.user = user_instance
         kid.save()
         return super().form_valid(form)
 
@@ -45,10 +55,14 @@ class DetailsKidView(LoginRequiredMixin, views.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         kid_drawings = self.drawings.filter(kid_owner_drawing_id=self.object.id)
         is_owner = self.object.user_id == self.request.user.id
-        context['kid_drawings'] = kid_drawings
-        context['is_owner'] = is_owner
+
+        context.update({
+            'kid_drawings': kid_drawings,
+            'is_owner': is_owner
+        })
 
         return context
 
@@ -68,9 +82,3 @@ class DeleteKidView(LoginRequiredMixin, views.DeleteView):
     template_name = 'kids/kid-delete-page.html'
     model = Kid
     success_url = reverse_lazy('home page')
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     delete_action = "{% url 'delete kid' object.user_id object.slug %}"
-    #     context['delete_action'] = delete_action
-    #     return context
