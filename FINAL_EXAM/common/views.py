@@ -1,6 +1,8 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import generic as views
 
@@ -9,7 +11,7 @@ from FINAL_EXAM.common.models import Like, Comment
 from FINAL_EXAM.drawings.models import Drawing
 from FINAL_EXAM.kids.models import Kid
 
-
+UserModel = get_user_model()
 def show_home_page(request):
     paginate_by = 3
     queryset = Drawing.objects.all()
@@ -33,7 +35,7 @@ def show_home_page(request):
         'drawings': page_obj,
         'search_form': search_form,
         'page_obj': page_obj,
-        'liked_drawings_by_user': liked_drawings_by_user
+        'liked_drawings_by_user': liked_drawings_by_user,
 
     }
     return render(request, 'common/index.html', context)
@@ -71,3 +73,10 @@ class AddCommentView(LoginRequiredMixin, views.CreateView):
     def get_success_url(self):
         drawing_id = self.kwargs['drawing_id']
         return f'{self.request.META["HTTP_REFERER"]}#{drawing_id}'
+
+
+@login_required
+def admin_panel(request):
+    return HttpResponseRedirect(
+        "http://127.0.0.1:8000/admin/"
+    )
