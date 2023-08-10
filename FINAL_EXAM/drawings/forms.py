@@ -15,4 +15,8 @@ class DrawingForm(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
         super(DrawingForm, self).__init__(*args, **kwargs)
         self.fields['kid_owner_drawing'].required = False
-        self.fields['kid_owner_drawing'].queryset = Kid.objects.filter(user=user)
+
+        if user.is_superuser:
+            self.fields['kid_owner_drawing'].queryset = Kid.objects.all()
+        else:
+            self.fields['kid_owner_drawing'].queryset = Kid.objects.filter(user=user)
