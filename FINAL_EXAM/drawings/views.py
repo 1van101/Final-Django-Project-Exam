@@ -12,7 +12,6 @@ from FINAL_EXAM.kids.models import Kid
 UserModel = get_user_model()
 
 
-
 class AddDrawingView(LoginRequiredMixin, views.FormView):
     template_name = 'drawings/drawing-add-page.html'
     form_class = DrawingForm
@@ -67,8 +66,16 @@ class DetailsDrawingView(LoginRequiredMixin, views.DetailView):
         return context
 
 
-class DeleteDrawingView(LoginRequiredMixin, IsStaffOrOwnerMixin, views.DeleteView):
+class DeleteDrawingView(IsStaffOrOwnerMixin, LoginRequiredMixin, views.DeleteView):
     template_name = 'drawings/drawing-delete-page.html'
     model = Drawing
 
     success_url = reverse_lazy('home page')
+
+    def get_context_data(self, **kwargs):
+        user = self.request.user
+        context = super().get_context_data(**kwargs)
+        is_owner = self.object.user_id == user.id
+        context['is_owner'] = is_owner
+
+        return context

@@ -40,7 +40,5 @@ class Drawing(models.Model):
     def __str__(self):
         return f'Drawing of {self.kid_owner_drawing.name}'
 
-
     class Meta:
         ordering = ['-date_of_publication']
-

@@ -20,3 +20,5 @@ class DrawingForm(forms.ModelForm):
             self.fields['kid_owner_drawing'].queryset = Kid.objects.all()
         else:
             self.fields['kid_owner_drawing'].queryset = Kid.objects.filter(user=user)
+
+
