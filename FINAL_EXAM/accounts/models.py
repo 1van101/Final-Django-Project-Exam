@@ -1,10 +1,11 @@
-from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
 from django.db import models
 from django.contrib.auth import models as auth_models
 
 
 from FINAL_EXAM.validators import only_letters_validator
+
+
 
 
 class AppUser(auth_models.AbstractUser):
@@ -29,7 +30,8 @@ class AppUser(auth_models.AbstractUser):
     first_name = models.CharField(
         max_length=MAX_FNAME_LEN,
         validators=[
-            MinLengthValidator(MIN_FNAME_LEN),
+            MinLengthValidator(limit_value=MIN_FNAME_LEN,
+                               message='Ensure first name has at least 2 characters (it has 1).'),
             only_letters_validator
         ],
         null=True,
@@ -39,7 +41,8 @@ class AppUser(auth_models.AbstractUser):
     last_name = models.CharField(
         max_length=MAX_LNAME_LEN,
         validators=[
-            MinLengthValidator(MIN_LNAME_LEN),
+            MinLengthValidator(limit_value=MIN_LNAME_LEN,
+                               message='Ensure last name has at least 2 characters (it has 1).'),
             only_letters_validator
         ],
         null=True,
@@ -51,6 +54,7 @@ class AppUser(auth_models.AbstractUser):
     )
 
     gender = models.CharField(
+        max_length=max(len(choice[0]) for choice in CHOICES),
         choices=CHOICES,
         null=True,
         blank=True
@@ -59,6 +63,7 @@ class AppUser(auth_models.AbstractUser):
     profile_picture = models.URLField(
         null=True,
         blank=True
+
     )
 
     is_visitor = models.BooleanField(default=False)
