@@ -1,10 +1,17 @@
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
 from datetime import datetime
 
+from FINAL_EXAM.validators import only_letters_validator
+
+# from FINAL_EXAM.validators import OnlyLettersValidator
 
 UserModel = get_user_model()
+
+
+
 
 
 class Kid(models.Model):
@@ -14,6 +21,7 @@ class Kid(models.Model):
         max_length=MAX_NAME_LENGTH,
         null=False,
         blank=False,
+        validators=[only_letters_validator]
     )
 
     personal_photo = models.URLField(
@@ -52,5 +60,5 @@ class Kid(models.Model):
     def count_age(self):
         current_date = datetime.now().date()
         age = current_date.year - self.date_of_birth.year - (
-                    (current_date.month, current_date.day) < (self.date_of_birth.month, self.date_of_birth.day))
+                (current_date.month, current_date.day) < (self.date_of_birth.month, self.date_of_birth.day))
         return age
