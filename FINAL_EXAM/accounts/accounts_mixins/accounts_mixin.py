@@ -13,4 +13,3 @@ class IsStaffOrOwnerMixin(UserPassesTestMixin):
             raise PermissionDenied
         else:
             return super().handle_no_permission()
-        raise PermissionDenied
