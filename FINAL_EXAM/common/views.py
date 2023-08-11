@@ -18,7 +18,6 @@ def show_home_page(request):
     user = request.user
     queryset = Drawing.objects.all().order_by('-id')
     search_form = SearchForm()
-
     liked_drawings_by_user = [l.to_drawing_id for l in user.like_set.all()] if user.is_authenticated else []
 
     search_query = request.GET.get('drawings_of_searched_kid')
