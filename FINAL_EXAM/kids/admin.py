@@ -3,7 +3,6 @@ from django.contrib import admin
 from FINAL_EXAM.kids.models import Kid
 
 
-# Register your models here.
 @admin.register(Kid)
 class KidAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'user', 'slug')

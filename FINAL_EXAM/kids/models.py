@@ -1,17 +1,11 @@
 from django.contrib.auth import get_user_model
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
 from datetime import datetime
 
 from FINAL_EXAM.validators import only_letters_validator
 
-# from FINAL_EXAM.validators import OnlyLettersValidator
-
 UserModel = get_user_model()
-
-
-
 
 
 class Kid(models.Model):
