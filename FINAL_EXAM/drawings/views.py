@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic as views
 
+from FINAL_EXAM.accounts.accounts_mixins.accounts_mixin import IsStaffOrOwnerMixin
 from FINAL_EXAM.common.forms import CommentForm
 from FINAL_EXAM.drawings.forms import DrawingForm
 from FINAL_EXAM.drawings.models import Drawing
@@ -12,7 +13,6 @@ UserModel = get_user_model()
 
 
 
-# TODO:when superuser add drawing to be linked to correct parent
 class AddDrawingView(LoginRequiredMixin, views.FormView):
     template_name = 'drawings/drawing-add-page.html'
     form_class = DrawingForm
@@ -30,7 +30,7 @@ class AddDrawingView(LoginRequiredMixin, views.FormView):
 
     def form_valid(self, form):
         drawing = form.save(commit=False)
-        if self.request.user.is_superuser:
+        if self.request.user.is_staff:
             user = form.cleaned_data['kid_owner_drawing'].user
             drawing.user = user
         else:
@@ -67,7 +67,7 @@ class DetailsDrawingView(LoginRequiredMixin, views.DetailView):
         return context
 
 
-class DeleteDrawingView(LoginRequiredMixin, views.DeleteView):
+class DeleteDrawingView(LoginRequiredMixin, IsStaffOrOwnerMixin, views.DeleteView):
     template_name = 'drawings/drawing-delete-page.html'
     model = Drawing
 

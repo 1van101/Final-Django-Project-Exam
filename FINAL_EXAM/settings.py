@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-$bcvk1i64@#x5^(i&29cxrs4k9&k6+1e7%lb2ea=+d_txcg5p1'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -135,6 +135,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'your_email@gmail.com'
-EMAIL_HOST_PASSWORD = 'your email pass'
+EMAIL_HOST_USER = 'no.reply.drawings@gmail.com'
+EMAIL_HOST_PASSWORD = 'kxltieeynyosuwep'
 
