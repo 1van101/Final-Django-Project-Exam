@@ -13,6 +13,9 @@
 
 
                 <form method='post' action="{% url 'add drawing' %}" enctype="multipart/form-data">
+                    {{ form.drawing.errors }}
+                    {{ form.description.errors }}
+                    {{ form.kid_owner_drawing.errors }}
                     {{ form.drawing }}
                     {{ form.description|placeholder:'Add your description here...' }}
                     {{ form.kid_owner_drawing }}
@@ -25,7 +28,7 @@
 
             </div>
         </div>
-
+{% include 'partials/back-btn.html' %}
     </main>
     </body>
 {% endblock %}

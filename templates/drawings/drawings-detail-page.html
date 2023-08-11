@@ -23,6 +23,13 @@
                 </a>
             {% endif %}
         </div>
+    <h3 class="drawing-description-h3">
+                Description
+            </h3>
+        <div class="kid-drawing-description">
+
+            <p>{{ drawing.description }}</p>
+        </div>
         <div class="like-details-drawing">
             <p class="post-time">{{ drawing.date_of_publication }}</p>
             <a href="{% url 'like functionality' drawing.id %}">
@@ -103,9 +110,7 @@
     </div>
 
 
-    <div class="go-back">
-        <a class="go-back-button" href="javascript:history.back()">Go Back</a>
-    </div>
+    {% include 'partials/back-btn.html' %}
 
 
     </body>

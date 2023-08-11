@@ -23,6 +23,21 @@
     width: 80%;
 }
 
+.kid-drawing-description{
+    width: 80%;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.kid-drawing-description p{
+    padding: 8px;
+    color: gray;
+}
+.drawing-description-h3{
+    margin: 20px;
+    color: #e5e5e5;
+}
+
 /*.kid-drawing-details img{*/
 /*    margin-bottom: 32px;*/
 /*}*/

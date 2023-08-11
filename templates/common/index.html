@@ -26,13 +26,13 @@
                 <div class="no-posts-yet">
                     <img src="{% static 'images/not-found.png' %}" alt="">
                     <p>This kid doesn't have any drawings yet...</p>
-                    <a class="edit-btn" href="javascript:history.back()">Go Back</a>
+                    {% include 'partials/back-btn.html' %}
                 </div>
             {% else %}
                 <div class="no-posts-yet">
                     <img src="{% static 'images/kid_not_found.png' %}" alt="">
                     <p>This kid doesn't exist...</p>
-                    <a class="edit-btn" href="javascript:history.back()">Go Back</a>
+                    {% include 'partials/back-btn.html' %}
                 </div>
             {% endif %}
         {% else %}
