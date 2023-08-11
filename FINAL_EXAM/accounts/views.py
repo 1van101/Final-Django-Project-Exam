@@ -1,17 +1,19 @@
 from django.contrib.auth import get_user_model, login
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import views as auth_view
+
+from FINAL_EXAM.accounts.accounts_mixins.accounts_mixin import IsStaffOrOwnerMixin
 from FINAL_EXAM.accounts.forms import AppUserCreateForm, LoginForm, AppUserEditForm, FilterKidsForm
 from FINAL_EXAM.drawings.models import Drawing
 from FINAL_EXAM.kids.models import Kid
 
 UserModel = get_user_model()
 
-def show(request):
-    return render(request, '404.html')
+
 class UserRegisterView(views.CreateView):
     template_name = 'accounts/user-register-page.html'
     model = UserModel
@@ -69,11 +71,10 @@ class UserDetailsView(LoginRequiredMixin, views.DetailView):
             'all_drawings': all_drawings,
         })
 
-
         return context
 
 
-class UserEditView(LoginRequiredMixin, views.UpdateView):
+class UserEditView(LoginRequiredMixin, IsStaffOrOwnerMixin, views.UpdateView):
     model = UserModel
     template_name = 'accounts/user-edit-page.html'
     form_class = AppUserEditForm
@@ -82,7 +83,7 @@ class UserEditView(LoginRequiredMixin, views.UpdateView):
         return reverse_lazy('details profile', kwargs={'pk': self.object.pk})
 
 
-class UserDeleteView(LoginRequiredMixin, views.DeleteView):
+class UserDeleteView(LoginRequiredMixin, IsStaffOrOwnerMixin, views.DeleteView):
     model = UserModel
     template_name = 'accounts/user-delete-page.html'
     success_url = reverse_lazy('home page')

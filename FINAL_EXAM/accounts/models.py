@@ -1,18 +1,19 @@
+from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
 from django.db import models
 from django.contrib.auth import models as auth_models
 
-from FINAL_EXAM.accounts.validators import only_letters_validator
 
-
-# UserModel = get_user_model()
+from FINAL_EXAM.validators import only_letters_validator
 
 
 class AppUser(auth_models.AbstractUser):
     MIN_USERNAME_LEN = 2
     MAX_USERNAME_LEN = 30
-    MAX_USER_NAME_LEN = 30
-    MIN_USER_NAME_LEN = 2
+    MAX_FNAME_LEN = 30
+    MAX_LNAME_LEN = 30
+    MIN_FNAME_LEN = 2
+    MIN_LNAME_LEN = 2
     CHOICES = (
         ('Male', 'Male'),
         ('Female', 'Female'),
@@ -21,13 +22,14 @@ class AppUser(auth_models.AbstractUser):
     username = models.CharField(
         max_length=MAX_USERNAME_LEN,
         unique=True,
-        validators=[MinLengthValidator(limit_value=MIN_USERNAME_LEN)],
+        validators=[MinLengthValidator(limit_value=MIN_USERNAME_LEN,
+                                       message='Ensure username has at least 2 characters (it has 1).')],
     )
 
     first_name = models.CharField(
-        max_length=MAX_USER_NAME_LEN,
+        max_length=MAX_FNAME_LEN,
         validators=[
-            MinLengthValidator(MIN_USER_NAME_LEN),
+            MinLengthValidator(MIN_FNAME_LEN),
             only_letters_validator
         ],
         null=True,
@@ -35,9 +37,9 @@ class AppUser(auth_models.AbstractUser):
     )
 
     last_name = models.CharField(
-        max_length=MAX_USER_NAME_LEN,
+        max_length=MAX_LNAME_LEN,
         validators=[
-            MinLengthValidator(MIN_USER_NAME_LEN),
+            MinLengthValidator(MIN_LNAME_LEN),
             only_letters_validator
         ],
         null=True,
@@ -68,3 +70,4 @@ class AppUser(auth_models.AbstractUser):
         elif self.first_name or self.last_name:
             return self.first_name or self.last_name
         return self.username
+
