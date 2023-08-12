@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic as views
 
-from FINAL_EXAM.accounts.accounts_mixins.accounts_mixin import IsStaffOrOwnerMixin
+from FINAL_EXAM.drawings.drawings_mixins.drawings_mixins import IsStaffOrOwnerMixin
 from FINAL_EXAM.common.forms import CommentForm
 from FINAL_EXAM.drawings.forms import DrawingForm
 from FINAL_EXAM.drawings.models import Drawing
@@ -66,16 +66,16 @@ class DetailsDrawingView(LoginRequiredMixin, views.DetailView):
         return context
 
 
-class DeleteDrawingView(IsStaffOrOwnerMixin, LoginRequiredMixin, views.DeleteView):
+class DeleteDrawingView(LoginRequiredMixin, IsStaffOrOwnerMixin, views.DeleteView):
     template_name = 'drawings/drawing-delete-page.html'
     model = Drawing
 
     success_url = reverse_lazy('home page')
 
-    def get_context_data(self, **kwargs):
-        user = self.request.user
-        context = super().get_context_data(**kwargs)
-        is_owner = self.object.user_id == user.id
-        context['is_owner'] = is_owner
-
-        return context
+    # def get_context_data(self, **kwargs):
+    #     user = self.request.user
+    #     context = super().get_context_data(**kwargs)
+    #     is_owner = self.object.user_id == user.id
+    #     context['is_owner'] = is_owner
+    #
+    #     return context
