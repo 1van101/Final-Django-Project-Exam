@@ -73,7 +73,7 @@ class UserDetailsView(LoginRequiredMixin, views.DetailView):
         return context
 
 
-class UserEditView(LoginRequiredMixin, IsStaffOrOwnerMixin, views.UpdateView):
+class UserEditView(IsStaffOrOwnerMixin, LoginRequiredMixin,  views.UpdateView):
     model = UserModel
     template_name = 'accounts/user-edit-page.html'
     form_class = AppUserEditForm

@@ -5,8 +5,9 @@ from django.shortcuts import render
 
 class IsStaffOrOwnerMixin(UserPassesTestMixin):
     def test_func(self):
-        user = self.request.user
-        return user.is_staff or user == self.get_object().user
+        requested_user = self.request.user
+        object_user = self.get_object()
+        return requested_user.is_staff or requested_user == object_user
 
 
     def handle_no_permission(self):
@@ -14,3 +15,4 @@ class IsStaffOrOwnerMixin(UserPassesTestMixin):
             raise PermissionDenied
         else:
             return super().handle_no_permission()
+
