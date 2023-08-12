@@ -8,6 +8,7 @@ class IsStaffOrOwnerMixin(UserPassesTestMixin):
         user = self.request.user
         return user.is_staff or user == self.get_object().user
 
+
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
             raise PermissionDenied
