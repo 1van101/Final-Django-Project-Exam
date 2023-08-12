@@ -5,7 +5,7 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 ### Home Page and User Roles:
 - ``` Not authenticated users ```: Can explore drawings only.
   
-
+ ![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/home-screen.jpg)
 - ``` Parent ```: Can register, log in, add kids, and associate drawings with their kids.
 - ``` Visitor ```: Can explore drawings, view user profiles, and profiles of their linked kids.
 - ``` Staff ```: Can manage kids for other parents and add drawings for any kid.
@@ -13,12 +13,21 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 ### Authentication and Authorization:
 
 - Secure user registration:
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/register-screen.jpg)
 - Login system:
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/login-screen.jpg)
 ### Kid and Drawing Management:
 
 - Parents can add and manage their kids.
+
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/add-kid-screen.jpg)
+
 - Parents can upload drawings and link them to their kids.
+
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/add-drawing-screen.jpg)
+
 - Staff can manage kids for all parents and add drawings for any kid.
+
 
 ### Installation
 - Clone this repository to your local machine using git clone ``` [https://github.com/1van101/Final-Django-Project-Exam.git] ```
