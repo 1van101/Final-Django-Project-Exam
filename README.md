@@ -5,7 +5,6 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 ### Home Page and User Roles:
 - ``` Not authenticated users ```: Can explore drawings only.
   
-![Screenshot of Home page](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/home-screen.jpg)
 
 - ``` Parent ```: Can register, log in, add kids, and associate drawings with their kids.
 - ``` Visitor ```: Can explore drawings, view user profiles, and profiles of their linked kids.
