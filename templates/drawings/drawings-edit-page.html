@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load custom_filters %}
+
+{% load static %}
+
+{% block content %}
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
+    <main>
+
+        <div class="login-register-container">
+            <div class="login-register-box">
+                <h1 class="add-drawing-h1">Add drawing</h1>
+
+
+                <form method='post' action="{% url 'edit drawing' pk=object.pk%}" enctype="multipart/form-data">
+                    {% for field in form %}
+
+                        <p class="error"> {{ field.errors }} </p>
+                        <div class="label-input">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                        {% csrf_token %}
+                    {% endfor %}
+                        {% csrf_token %}
+
+
+                    <button type="submit">Edit drawing</button>
+                </form>
+
+            </div>
+        </div>
+{% include 'partials/back-btn.html' %}
+    </main>
+    </body>
+{% endblock %}

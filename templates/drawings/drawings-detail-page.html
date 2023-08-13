@@ -23,9 +23,9 @@
                 </a>
             {% endif %}
         </div>
-    <h3 class="drawing-description-h3">
-                Description
-            </h3>
+        <h3 class="drawing-description-h3">
+            Description
+        </h3>
         <div class="kid-drawing-description">
 
             <p>{{ drawing.description }}</p>
@@ -46,6 +46,7 @@
             <p id="count-likes">{{ drawing.like_set.count }} likes</p>
             <div id="peopleLiked"></div>
 
+{#            JS for show likes ->#}
             <script>
                 let likesCount = document.getElementById('count-likes');
                 likesCount.addEventListener('click', function () {
@@ -59,7 +60,6 @@
                         newDiv.className = 'active'
                     } else {
                         newDiv.className = ''
-                        {#newDiv.innerHTML = ''#}
                         removeAllChildrenElements(newDiv)
                     }
                 })
@@ -72,9 +72,7 @@
             </script>
         </div>
 
-
     </div>
-
 
     <div class="comments-container">
         <div class="comments">
@@ -109,12 +107,7 @@
             </form>
         </div>
     </div>
-
-
     {% include 'partials/back-btn.html' %}
-
-
     </body>
-
 
 {% endblock %}
