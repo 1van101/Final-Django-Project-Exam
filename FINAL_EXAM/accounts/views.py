@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import views as auth_view
 
-from FINAL_EXAM.accounts.accounts_mixins.accounts_mixin import IsStaffOrOwnerMixin
+from FINAL_EXAM.accounts.accounts_mixins.accounts_mixins import IsStaffOrOwnerAccountsMixin
 from FINAL_EXAM.accounts.forms import AppUserCreateForm, LoginForm, AppUserEditForm, FilterKidsForm
 from FINAL_EXAM.drawings.models import Drawing
 from FINAL_EXAM.kids.models import Kid
@@ -73,7 +73,7 @@ class UserDetailsView(LoginRequiredMixin, views.DetailView):
         return context
 
 
-class UserEditView(IsStaffOrOwnerMixin, LoginRequiredMixin,  views.UpdateView):
+class UserEditView(LoginRequiredMixin, IsStaffOrOwnerAccountsMixin, views.UpdateView):
     model = UserModel
     template_name = 'accounts/user-edit-page.html'
     form_class = AppUserEditForm
@@ -82,7 +82,7 @@ class UserEditView(IsStaffOrOwnerMixin, LoginRequiredMixin,  views.UpdateView):
         return reverse_lazy('details profile', kwargs={'pk': self.object.pk})
 
 
-class UserDeleteView(LoginRequiredMixin, IsStaffOrOwnerMixin, views.DeleteView):
+class UserDeleteView(LoginRequiredMixin, IsStaffOrOwnerAccountsMixin, views.DeleteView):
     model = UserModel
     template_name = 'accounts/user-delete-page.html'
     success_url = reverse_lazy('home page')
