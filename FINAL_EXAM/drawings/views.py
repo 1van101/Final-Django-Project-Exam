@@ -5,7 +5,7 @@ from django.views import generic as views
 
 from FINAL_EXAM.drawings.drawings_mixins.drawings_mixins import IsStaffOrOwnerDrawingsMixin
 from FINAL_EXAM.common.forms import CommentForm
-from FINAL_EXAM.drawings.forms import DrawingCreateForm
+from FINAL_EXAM.drawings.forms import DrawingCreateForm, DrawingEditForm
 from FINAL_EXAM.drawings.models import Drawing
 from FINAL_EXAM.kids.models import Kid
 
@@ -66,6 +66,15 @@ class DetailsDrawingView(LoginRequiredMixin, views.DetailView):
         return context
 
 
+class EditDrawingView(LoginRequiredMixin, IsStaffOrOwnerDrawingsMixin, views.UpdateView):
+    template_name = 'drawings/drawings-edit-page.html'
+    model = Drawing
+    form_class = DrawingEditForm
+
+    def get_success_url(self):
+        return reverse_lazy('details drawing', kwargs={'pk': self.object.pk})
+
+
 class DeleteDrawingView(LoginRequiredMixin, IsStaffOrOwnerDrawingsMixin, views.DeleteView):
     template_name = 'drawings/drawing-delete-page.html'
     model = Drawing
@@ -79,4 +88,3 @@ class DeleteDrawingView(LoginRequiredMixin, IsStaffOrOwnerDrawingsMixin, views.D
     #     context['is_owner'] = is_owner
     #
     #     return context
-

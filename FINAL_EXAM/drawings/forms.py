@@ -22,5 +22,8 @@ class DrawingCreateForm(forms.ModelForm):
             self.fields['kid_owner_drawing'].queryset = Kid.objects.filter(user=user)
 
 
-
+class DrawingEditForm(forms.ModelForm):
+    class Meta:
+        model = Drawing
+        fields = ['description']
 

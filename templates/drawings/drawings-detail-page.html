@@ -10,14 +10,18 @@
 
 
         <div class="kid-drawing-details">
-            <h3>
+            <h3><a href="{% url 'details kid' object.kid_owner_drawing.user.pk object.kid_owner_drawing.slug %}">
                 {{ drawing.kid_owner_drawing.name }}
+                </a>
             </h3>
             <div class="kid-drawing-details-img"><img
                     src="{{ drawing.drawing.url }}" alt="">
             </div>
 
             {% if is_owner|is_staff_or:request.user %}
+                <a href="{% url 'edit drawing' object.pk %}" title="Edit drawing">
+                    <img class="edit-button" src="{% static 'images/edit (1).png' %}" alt="edit">
+                </a>
                 <a href="{% url 'delete drawing' object.pk %}" title="Delete drawing">
                     <img class="delete-button" src="{% static 'images/delete (1).png' %}" alt="delete">
                 </a>
