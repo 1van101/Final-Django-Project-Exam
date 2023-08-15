@@ -5,5 +5,5 @@ UserModel = get_user_model()
 
 
 @admin.register(UserModel)
-class GoshoAdmin(auth_admin.UserAdmin):
+class UserAppAdmin(auth_admin.UserAdmin):
     list_per_page = 20
