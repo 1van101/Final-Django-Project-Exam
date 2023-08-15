@@ -250,6 +250,7 @@
     display: flex; /* Show the container when the active class is applied */
     justify-content: center;
     align-items: center;
+    margin-top: 6px;
 }
 
 #peopleLiked ul {
