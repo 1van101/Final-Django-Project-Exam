@@ -10,7 +10,7 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 - ``` Visitor ```: Can explore drawings, view user profiles, and profiles of their linked kids.
 - ``` Staff ```: Can manage kids for other parents and add drawings for any kid.
 
-![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/home-screen-admin.jpg)
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/home-screen-staff.jpg)
 
 ### Authentication and Authorization:
 
@@ -34,7 +34,7 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 
 - Drawings likes and comment section:
 
-![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/drawing-likes-comments.jpg)
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/drawing-likes-comments.png)
 
 - Who liked the drawing container: 
 
