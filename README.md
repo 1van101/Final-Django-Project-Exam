@@ -27,7 +27,7 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 - Parents edit page.
 ![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/profile-edit.png)
 
-- Parents can add and manage their kids.
+- Parents can add and manage their kids. /Here is logged staff user so they can add kid to every user with account. Regular user can add only to themselves/
 ![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/add-kid-screen.jpg)
 
 - Parents can upload drawings and link them to their kids.
