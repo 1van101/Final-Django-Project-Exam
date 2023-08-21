@@ -20,6 +20,18 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 ![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/login-screen.jpg)
 ### Kid and Drawing Management:
 
+- Parents details page.
+
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/profile-details.png)
+
+- Filter kid's drawings by name in parent profile details.
+
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/profile-details-filter.png)
+
+- Parents edit page.
+
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/profile-edit.png)
+
 - Parents can add and manage their kids.
 
 ![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/add-kid-screen.jpg)
@@ -43,6 +55,10 @@ Welcome to the World of Kid's Drawings project! This is a Django-based web appli
 - Edit drawing page: 
 
 ![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/edit-drawing-screen.jpg)
+
+- Details drawing page: 
+
+![Alt Text](https://github.com/1van101/Final-Django-Project-Exam/blob/main/staticfiles/images/drawing-details.png)
 
 
 ### Installation
