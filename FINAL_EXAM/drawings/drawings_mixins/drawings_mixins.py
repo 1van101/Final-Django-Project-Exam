@@ -6,10 +6,3 @@ class IsStaffOrOwnerDrawingsMixin(UserPassesTestMixin):
         requested_user = self.request.user
         object_user = self.get_object().user
         return requested_user.is_staff or requested_user == object_user
-    #
-    #
-    # def handle_no_permission(self):
-    #     if self.request.user.is_authenticated:
-    #         raise PermissionDenied
-    #     else:
-    #         return super().handle_no_permission()

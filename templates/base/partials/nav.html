@@ -6,32 +6,22 @@
         <ul class="nav-group">
             {% if request.user.is_staff %}
                 <li class="nav-item">
-
                     <a href="{% url 'admin panel' %}">
-
                         <i>Admin</i>
                     </a>
                 </li>
             {% endif %}
             <li class="nav-item">
-
                 <a href="{% url 'home page' %}">
-
                     <i>Home</i>
                 </a>
             </li>
             {% if request.user.is_authenticated %}
-
                 <li class="nav-item">
                     <a href="{% url 'add drawing' %}">
                         <i>Add Drawing</i>
                     </a>
                 </li>
-{#            {% endif %}#}
-
-
-
-
                 <li class="nav-item">
 
                     <a href="{% url 'details profile' request.user.pk %}">

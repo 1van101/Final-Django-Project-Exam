@@ -16,9 +16,6 @@
     width: 250px;
 }
 
-/*.image:hover{*/
-/*    width: 270px;*/
-/*}*/
 .user-information-outer {
     display: inline-block;
     padding: 2px;
@@ -30,14 +27,9 @@
     display: flex;
     background-image: url("../images/default-page(1).png");
     justify-content: center;
-    /*margin-top: 40px;*/
     gap: 100px;
     background-color: #ededed;
     padding: 10px;
-    /*border-width: 2px;*/
-    /*border-style: solid;*/
-    /*border-image: linear-gradient(45deg, #1dac90, #6f4380, #e36c8f);*/
-    /*border-image-slice: 1;*/
     border-radius: 6px;
 }
 
@@ -118,7 +110,6 @@
 
 .prof-details-h2 {
     margin: 60px 0 50px 0;
-    /*color: #6f4380;*/
     background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90); /* Adjust gradient colors */
     -webkit-background-clip: text; /* Apply the gradient to the text content */
     color: transparent; /* Make the text transparent to show the gradient */

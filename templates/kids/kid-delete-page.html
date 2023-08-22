@@ -3,8 +3,6 @@
 
 {% url 'delete kid' object.user_id object.slug as delete_kid_url %}
 
-
-
 {% block content %}
     {% include 'partials/delete-page.html' with delete_action=delete_kid_url %}
 {% endblock %}

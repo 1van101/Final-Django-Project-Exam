@@ -3,9 +3,6 @@
 
 {% url 'delete profile' pk=prequest.user.pk as delete_profile_url %}
 
-
-
 {% block content %}
     {% include 'partials/delete-page.html' with delete_action=delete_profile_url %}
-
 {% endblock %}

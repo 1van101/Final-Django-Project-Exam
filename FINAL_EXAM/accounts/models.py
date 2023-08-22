@@ -2,10 +2,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 from django.contrib.auth import models as auth_models
 
-
 from FINAL_EXAM.validators import only_letters_validator
-
-
 
 
 class AppUser(auth_models.AbstractUser):
@@ -75,4 +72,3 @@ class AppUser(auth_models.AbstractUser):
         elif self.first_name or self.last_name:
             return self.first_name or self.last_name
         return self.username
-

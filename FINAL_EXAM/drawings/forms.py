@@ -14,7 +14,6 @@ class DrawingCreateForm(forms.ModelForm):
 
     def __init__(self, user, *args, **kwargs):
         super(DrawingCreateForm, self).__init__(*args, **kwargs)
-        # self.fields['kid_owner_drawing'].required = False
 
         if user.is_staff:
             self.fields['kid_owner_drawing'].queryset = Kid.objects.all()

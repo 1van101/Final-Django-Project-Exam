@@ -3,8 +3,6 @@
 
 {% url 'details drawing' object.pk as delete_drawing_url %}
 
-
-
 {% block content %}
     {% include 'partials/delete-page.html' with delete_action=delete_drawing_url %}
 

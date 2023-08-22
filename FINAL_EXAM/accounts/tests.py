@@ -18,7 +18,6 @@ class AppUserTestCase(TestCase):
             'is_visitor': False,
         }
         self.user = UserModel.objects.create_user(**self.user_data)
-        # self.user.save()
 
     def test_valid_username(self):
         self.user.username = 'john_doe'

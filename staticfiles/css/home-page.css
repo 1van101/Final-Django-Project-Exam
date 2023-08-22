@@ -90,11 +90,6 @@ main {
 
 }
 
-/*.text-typing h1 {*/
-/*    white-space: nowrap;*/
-/*    overflow: hidden;*/
-/*    !*animation: typing 4s steps(22, end) forwards, blink 1s;*!*/
-/*}*/
 
 .text-typing h4 {
     white-space: nowrap;
@@ -104,23 +99,6 @@ main {
     animation: typing 2s steps(22, end) forwards, blink 1s;
 }
 
-/*@keyframes typing {*/
-/*    0% {*/
-/*        width: 0;*/
-/*    }*/
-/*    100% {*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
-
-/*@keyframes blink {*/
-/*    0%, 100% {*/
-/*        border-right: 2px solid transparent;*/
-/*    }*/
-/*    50% {*/
-/*        border-right: 2px solid #222;*/
-/*    }*/
-/*}*/
 
 /* CARD----------------------- */
 .user-name {

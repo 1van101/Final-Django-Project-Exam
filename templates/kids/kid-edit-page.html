@@ -4,7 +4,6 @@
 
 {% url 'edit kid' object.user_id object.slug as edit_profile_url %}
 
-
 {% block content %}
     {% include 'partials/edit-page.html' with edit_action=edit_profile_url %}
 {% endblock %}

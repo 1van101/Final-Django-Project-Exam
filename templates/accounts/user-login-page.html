@@ -6,7 +6,6 @@
 {% block content %}
     <body style="background-image: url('{% static "images/default-page.jpg" %}');">
     <main>
-
         <div class="login-register-container">
             <div class="login-register-box">
                 <h1 class="login-h1">Login</h1>
@@ -18,7 +17,6 @@
                         <div class="errorlist">
                             {{ form.non_field_errors }}
                         </div>
-
 
                     {{ form.username|placeholder:'Username' }}
                     {{ form.password|placeholder:'Password' }}

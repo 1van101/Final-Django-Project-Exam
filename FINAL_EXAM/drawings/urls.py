@@ -8,7 +8,6 @@ urlpatterns = (
         path('', DetailsDrawingView.as_view(), name='details drawing'),
         path('edit/', EditDrawingView.as_view(), name='edit drawing'),
         path('delete/', DeleteDrawingView.as_view(), name='delete drawing'),
-
     ])
          ),
 

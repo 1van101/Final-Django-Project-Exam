@@ -45,7 +45,6 @@ class DetailsDrawingView(LoginRequiredMixin, views.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # user = UserModel.objects.get(pk=self.request.user.pk)
         user = self.request.user
         liked_drawings_by_user = [l.to_drawing_id for l in
                                   user.like_set.all()] if self.request.user.is_authenticated else []
@@ -80,11 +79,3 @@ class DeleteDrawingView(LoginRequiredMixin, IsStaffOrOwnerDrawingsMixin, views.D
     model = Drawing
 
     success_url = reverse_lazy('home page')
-
-    # def get_context_data(self, **kwargs):
-    #     user = self.request.user
-    #     context = super().get_context_data(**kwargs)
-    #     is_owner = self.object.user_id == user.id
-    #     context['is_owner'] = is_owner
-    #
-    #     return context

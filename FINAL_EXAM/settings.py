@@ -1,12 +1,16 @@
+from dotenv import load_dotenv
+
 import os
 
 from pathlib import Path
 
 from django.urls import reverse_lazy
 
+load_dotenv()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-$bcvk1i64@#x5^(i&29cxrs4k9&k6+1e7%lb2ea=+d_txcg5p1'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
@@ -22,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
 
     'FINAL_EXAM.accounts.apps.AccountsConfig',
     'FINAL_EXAM.common',
@@ -48,8 +54,7 @@ ROOT_URLCONF = 'FINAL_EXAM.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,9 +75,9 @@ WSGI_APPLICATION = 'FINAL_EXAM.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "drawings_db",
-        "USER": "postgres",
-        "PASSWORD": "password123",
+        "NAME": os.environ.get('DB_NAME'),
+        "USER": os.environ.get('DB_USER'),
+        "PASSWORD": os.environ.get('DB_PASS'),
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
@@ -122,5 +127,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'no.reply.drawings@gmail.com'
-EMAIL_HOST_PASSWORD = 'kxltieeynyosuwep'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

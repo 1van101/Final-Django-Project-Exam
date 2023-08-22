@@ -1,106 +1,105 @@
 .login-register-container {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     gap: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
- .login-register-box{
-     display: flex;
-     flex-direction: column;
-     gap: 35px;
+
+.login-register-box {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
 }
-/* .login-register-box .login-h1{*/
-/*     color: #6f4380;*/
-/*}*/
-/* .login-register-box .register-h1{*/
-/*     color: #e36c8f;*/
-/*}*/
-/* .login-register-box .add-drawing-h1{*/
-/*     color: #fdc473;*/
-/*}*/
- .login-register-box form {
-     display: flex;
-     width: 300px;
-     flex-direction: column;
-     gap: 15px;
-     border-radius: 10px;
+
+.login-register-box form {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
 }
- .login-register-box input, textarea, select {
-     background-color: rgb(240, 230, 230);
-     border: 1px solid rgb(186, 184, 184);
-     border-radius: 4px;
-     height: 35px;
-     width: 100%;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /*padding-left: 2px;
-    */
-     padding: 8px;
-     outline: none;
+
+.login-register-box input, textarea, select {
+    background-color: rgb(240, 230, 230);
+    border: 1px solid rgb(186, 184, 184);
+    border-radius: 4px;
+    height: 35px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    outline: none;
 }
- .login-register-box input:focus{
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+.login-register-box input:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
- .login-register-box button {
-     background-color: #1dac90;
-    ;
-     color: white;
-     font-weight: bold;
-     border: none;
-     border-radius: 4px;
-     margin-top: 20px;
-     height: 35px;
-     cursor: pointer;
+
+.login-register-box button {
+    background-color: #1dac90;;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    height: 35px;
+    cursor: pointer;
 }
- .login-register-box button:hover{
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+.login-register-box button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
- .is-visitor-field {
-     background-color: rgb(240, 230, 230);
-     border: 1px solid rgb(218, 217, 217);
-     border-radius: 4px;
-     height: 35px;
-     width: 100%;
-     padding-left: 2px;
-     margin-top: 10px;
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-     align-items: center;
-     gap: 10px;
-    /* Adjust gap as needed */
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-     outline: none;
+
+.is-visitor-field {
+    background-color: rgb(240, 230, 230);
+    border: 1px solid rgb(218, 217, 217);
+    border-radius: 4px;
+    height: 35px;
+    width: 100%;
+    padding-left: 2px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
 }
- .is-visitor-field label {
-     font-size: 14px;
-     padding: 8px;
-     color: gray;
-    /*font-weight: bold;
-    */
+
+.is-visitor-field label {
+    font-size: 14px;
+    padding: 8px;
+    color: gray;
+
 }
- .is-visitor-field input[type="checkbox"] {
-     width: 25px;
-     background-color: rgb(240, 230, 230);
-     margin-right: 8px;
-     box-shadow: none;
-     cursor: pointer;
+
+.is-visitor-field input[type="checkbox"] {
+    width: 25px;
+    background-color: rgb(240, 230, 230);
+    margin-right: 8px;
+    box-shadow: none;
+    cursor: pointer;
 }
- .is-visitor-field input[type="checkbox"]:hover {
-     cursor: pointer;
+
+.is-visitor-field input[type="checkbox"]:hover {
+    cursor: pointer;
 }
- .errorlist {
-     color: red;
-     font-weight: bold;
+
+.errorlist {
+    color: red;
+    font-weight: bold;
 }
- .login-register-box textarea {
-     height: 100px;
+
+.login-register-box textarea {
+    height: 100px;
 }
- #id_drawing {
-     padding: 5px;
+
+#id_drawing {
+    padding: 5px;
 }
 
 
- .label-input label{
-     color: #6f4380;
- }
+.label-input label {
+    color: #6f4380;
+}

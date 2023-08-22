@@ -4,7 +4,6 @@
 
 {% url 'edit profile' object.pk as edit_profile_url %}
 
-
 {% block content %}
     {% include 'partials/edit-page.html' with edit_action=edit_profile_url %}
     {% include 'partials/back-btn.html' %}

@@ -8,7 +8,6 @@
         <h1 class="delete-h1">
             Are you sure you want to delete?
         </h1>
-        {#            <form method="post" action="{% url 'delete profile' request.user.pk %}">#}
         <form method="post" action="{{ delete_action }}">
             {% csrf_token %}
             <div class="sure-buttons">
