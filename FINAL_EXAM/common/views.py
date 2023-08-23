@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import generic as views
+from django.db.models import Count
 
 from FINAL_EXAM.common.forms import SearchForm, CommentForm
 from FINAL_EXAM.common.models import Like, Comment
@@ -90,3 +91,15 @@ def admin_panel(request):
     return HttpResponseRedirect(
         "http://127.0.0.1:8000/admin/"
     )
+
+
+class LeaderboardView(views.ListView):
+    template_name = 'common/leaderboard.html'
+    model = Drawing
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['drawings_with_likes'] = self.object_list.annotate(
+            num_likes=Count('like')).order_by('-num_likes')
+
+        return context

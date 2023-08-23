@@ -99,11 +99,14 @@
     {% endif %}
         <span class="current">
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-    </span>
+        </span>
         {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}&drawings_of_searched_kid={{ request.GET.drawings_of_searched_kid }}">next</a>
             <a href="?page={{ page_obj.paginator.num_pages }}&drawings_of_searched_kid={{ request.GET.drawings_of_searched_kid }}">last &raquo;</a>
         {% endif %}
+
+        <a href="{% url 'leaderboard page' %}" class="leaderboard">Leaderboard</a>
+
     </span>
             </div>
         {% endif %}

@@ -245,6 +245,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 
+
 .pagination a:hover {
     background-color: #f0f0f0;
 }
@@ -266,6 +267,10 @@ footer {
 
 .pagination span.step-links a {
     margin: 0 2px;
+}
+.pagination span.step-links .leaderboard {
+    margin-left: 20px;
+    font-weight: bold;
 }
 
 .pagination span.step-links a:hover {

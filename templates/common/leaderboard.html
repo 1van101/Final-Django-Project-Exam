@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% load custom_filters %}
+{% load static %}
+
+{% block content %}
+    <body style="background-image: url('{% static "images/default-page.jpg" %}');">
+{#    TODO: make the CSS#}
+    <div class="leaderboard-kids">
+        {% for drawing in drawings_with_likes %}
+        <div class="leaderboard-kid-record">
+            <img src="{{ drawing.kid_owner_drawing.personal_photo }}" alt="">
+            <p>{{ drawing.kid_owner_drawing.name }}</p>
+            <p>{{ drawing.description }}</p>
+            <p>{{ drawing.num_likes }}</p>
+        </div>
+
+
+        {% endfor %}
+    </div>
+    </body>
+
+{% endblock %}
