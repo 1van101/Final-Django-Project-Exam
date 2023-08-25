@@ -100,6 +100,6 @@ class LeaderboardView(views.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['drawings_with_likes'] = self.object_list.annotate(
-            num_likes=Count('like')).order_by('-num_likes')
+            num_likes=Count('like')).order_by('-num_likes', '-date_of_publication')
 
         return context

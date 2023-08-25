@@ -5,19 +5,44 @@
 
 {% block content %}
     <body style="background-image: url('{% static "images/default-page.jpg" %}');">
-{#    TODO: make the CSS#}
-    <div class="leaderboard-kids">
-        {% for drawing in drawings_with_likes %}
-        <div class="leaderboard-kid-record">
-            <img src="{{ drawing.kid_owner_drawing.personal_photo }}" alt="">
-            <p>{{ drawing.kid_owner_drawing.name }}</p>
-            <p>{{ drawing.description }}</p>
-            <p>{{ drawing.num_likes }}</p>
+        <div class="container">
+            <h1 class="leaderboard-heading">10 most liked drawings</h1>
+            <table class="leaderboard-kids">
+                <tr>
+                    <th>Place</th>
+                    <th>Kid</th>
+                    <th>Parent</th>
+                    <th>Image</th>
+                    <th>Description</th>
+
+                    <th>Total Likes</th>
+                </tr>
+                {% for drawing in drawings_with_likes %}
+                    <tr>
+                        <td>{{ forloop.counter }}.</td>
+                        <td>
+                            <div class="leaderboard-kid-record-details">
+                                <a href="{% url 'details kid' drawing.user_id drawing.kid_owner_drawing.slug%}" class="leaderboard-kid-anchor">
+                                <img class="kid-photo" src="{{ drawing.kid_owner_drawing.personal_photo }}" alt="">
+                                <p>{{ drawing.kid_owner_drawing.name }}</p>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="leaderboard-kid-record-details">
+                                <a href="{% url 'details profile' drawing.user_id%}" class="leaderboard-kid-anchor">
+                                <img class="kid-photo" src="{{ drawing.user.profile_picture }}" alt="">
+                                <p>{{ drawing.user.full_name }}</p>
+                                </a>
+                            </div>
+                        </td>
+                        <td><a href="{% url 'details drawing' drawing.pk%}" class="leaderboard-kid-anchor"><img src="{% static 'images/drawing-img.png' %}" alt="leaderboard-drawing"></a></td>
+                        <td><p>{{ drawing.description|truncatechars:15 }}</p></td>
+
+                        <td><p>{{ drawing.num_likes }}</p></td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
-
-
-        {% endfor %}
-    </div>
     </body>
-
 {% endblock %}

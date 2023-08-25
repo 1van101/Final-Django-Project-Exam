@@ -1,0 +1,68 @@
+
+
+
+/*.leaderboard-kids {*/
+/*    max-width: 60%;*/
+/*    margin: 50px auto;*/
+/*    border-radius: 5px;*/
+/*    padding: 10px;*/
+/*    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);*/
+/*    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);*/
+/*}*/
+
+/*.leaderboard-kid-record {*/
+/*    display: flex;*/
+/*    gap: 10px;*/
+/*}*/
+
+/*.leaderboard-kid-record img {*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*    border-radius: 50%;*/
+/*    object-fit: cover;*/
+/*}*/
+.leaderboard-heading{
+    text-align: center;
+    margin: 15px;
+    font-size: 35px;
+}
+.container {
+    max-width: 60%;
+    margin: 30px auto; /* Center the container */
+    padding: 20px; /* Add some padding to the container if desired */
+    background-color: #e5e5e5; /* Set a background color for the container */
+    opacity: 0.9; /* Adjust the opacity if needed */
+    border-radius: 10px; /* Add rounded corners to the container */
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3); /* Add a subtle shadow */
+}
+
+.kid-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.leaderboard-kids {
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 10px;
+    background: linear-gradient(45deg, #e36c8f, #6f4380, #1dac90);
+    box-shadow: 4px 4px 4px 6px rgba(2, 2, 2, 0.3);
+}
+
+.leaderboard-kids th,
+.leaderboard-kids td {
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+.leaderboard-kid-anchor{
+    font-weight: bold;
+    color: #e6e6e6;
+    text-decoration: none;
+}
+.leaderboard-kid-anchor img{
+    width: 45px;
+}
